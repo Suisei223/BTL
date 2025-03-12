@@ -40,7 +40,7 @@
             // 
             this.tcsv.AutoSize = true;
             this.tcsv.Font = new System.Drawing.Font("Times New Roman", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.tcsv.Location = new System.Drawing.Point(283, 28);
+            this.tcsv.Location = new System.Drawing.Point(301, 9);
             this.tcsv.Name = "tcsv";
             this.tcsv.Size = new System.Drawing.Size(197, 26);
             this.tcsv.TabIndex = 0;
@@ -48,7 +48,7 @@
             // 
             // ttk
             // 
-            this.ttk.Location = new System.Drawing.Point(99, 364);
+            this.ttk.Location = new System.Drawing.Point(44, 393);
             this.ttk.Name = "ttk";
             this.ttk.Size = new System.Drawing.Size(106, 45);
             this.ttk.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             // ktsdm
             // 
-            this.ktsdm.Location = new System.Drawing.Point(316, 364);
+            this.ktsdm.Location = new System.Drawing.Point(44, 269);
             this.ktsdm.Name = "ktsdm";
             this.ktsdm.Size = new System.Drawing.Size(143, 45);
             this.ktsdm.TabIndex = 2;
@@ -69,7 +69,7 @@
             // 
             // tcs
             // 
-            this.tcs.Location = new System.Drawing.Point(562, 364);
+            this.tcs.Location = new System.Drawing.Point(44, 329);
             this.tcs.Name = "tcs";
             this.tcs.Size = new System.Drawing.Size(122, 45);
             this.tcs.TabIndex = 3;
@@ -82,11 +82,11 @@
             this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(99, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(12, 47);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(585, 239);
+            this.dataGridView1.Size = new System.Drawing.Size(776, 207);
             this.dataGridView1.TabIndex = 4;
             // 
             // TrangChuSinhVien

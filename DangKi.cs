@@ -5,7 +5,6 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
-using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -49,14 +48,16 @@ namespace BTL
                 return;
             }
 
-            string hashedPassword = HashPassword(matKhau);
+            // Sử dụng mật khẩu trực tiếp mà không cần mã hóa
+            string matKhauText = matKhau;
+
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Open();
                 SqlCommand cmd = new SqlCommand("sp_ThemUser", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
-                cmd.Parameters.AddWithValue("@MatKhau", hashedPassword);
+                cmd.Parameters.AddWithValue("@MatKhau", matKhauText);  // Truyền mật khẩu trực tiếp
                 cmd.Parameters.AddWithValue("@VaiTro", vaiTro);
 
                 cmd.ExecuteNonQuery();
@@ -81,20 +82,6 @@ namespace BTL
             }
         }
 
-        // Hàm mã hóa mật khẩu bằng SHA256
-        private string HashPassword(string password)
-        {
-            using (SHA256 sha256 = SHA256.Create())
-            {
-                byte[] hashBytes = sha256.ComputeHash(Encoding.UTF8.GetBytes(password));
-                StringBuilder hashString = new StringBuilder();
-                foreach (byte b in hashBytes)
-                {
-                    hashString.Append(b.ToString("X2"));
-                }
-                return hashString.ToString(); // Trả về mật khẩu đã mã hóa
-            }
-        }
         private bool CheckIfAccountExists(string username)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -111,7 +98,7 @@ namespace BTL
                 cmd.ExecuteNonQuery();
                 conn.Close();
 
-                return (int)returnValue.Value == -1; // Nếu tài khoản đã tồn tại, proc sẽ trả về -1
+                return (int)returnValue.Value == -1; 
             }
         }
 
@@ -127,12 +114,12 @@ namespace BTL
         {
             if (txtMatKhau.Text == txtXacNhanMatKhau.Text)
             {
-                btnDangKy.Enabled = true; 
+                btnDangKy.Enabled = true;
                 errorProvider1.Clear();
             }
             else
             {
-                btnDangKy.Enabled = false; 
+                btnDangKy.Enabled = false;
             }
         }
     }

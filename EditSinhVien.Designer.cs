@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.cssv = new System.Windows.Forms.Label();
             this.msv = new System.Windows.Forms.Label();
             this.tsv = new System.Windows.Forms.Label();
@@ -42,13 +43,19 @@
             this.txtTen = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
+            this.txtTenDangNhap = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // cssv
             // 
+            this.cssv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cssv.AutoSize = true;
             this.cssv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cssv.Location = new System.Drawing.Point(230, 24);
+            this.cssv.Location = new System.Drawing.Point(249, 34);
             this.cssv.Name = "cssv";
             this.cssv.Size = new System.Drawing.Size(262, 32);
             this.cssv.TabIndex = 0;
@@ -56,6 +63,7 @@
             // 
             // msv
             // 
+            this.msv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.msv.AutoSize = true;
             this.msv.Location = new System.Drawing.Point(143, 135);
             this.msv.Name = "msv";
@@ -65,6 +73,7 @@
             // 
             // tsv
             // 
+            this.tsv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.tsv.AutoSize = true;
             this.tsv.Location = new System.Drawing.Point(143, 197);
             this.tsv.Name = "tsv";
@@ -74,8 +83,9 @@
             // 
             // sdt
             // 
+            this.sdt.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.sdt.AutoSize = true;
-            this.sdt.Location = new System.Drawing.Point(143, 271);
+            this.sdt.Location = new System.Drawing.Point(143, 255);
             this.sdt.Name = "sdt";
             this.sdt.Size = new System.Drawing.Size(34, 16);
             this.sdt.TabIndex = 3;
@@ -83,8 +93,9 @@
             // 
             // l
             // 
+            this.l.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.l.AutoSize = true;
-            this.l.Location = new System.Drawing.Point(415, 197);
+            this.l.Location = new System.Drawing.Point(412, 197);
             this.l.Name = "l";
             this.l.Size = new System.Drawing.Size(30, 16);
             this.l.TabIndex = 4;
@@ -92,8 +103,9 @@
             // 
             // e
             // 
+            this.e.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.e.AutoSize = true;
-            this.e.Location = new System.Drawing.Point(415, 271);
+            this.e.Location = new System.Drawing.Point(412, 258);
             this.e.Name = "e";
             this.e.Size = new System.Drawing.Size(41, 16);
             this.e.TabIndex = 5;
@@ -101,7 +113,8 @@
             // 
             // btnLuu
             // 
-            this.btnLuu.Location = new System.Drawing.Point(522, 346);
+            this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnLuu.Location = new System.Drawing.Point(604, 368);
             this.btnLuu.Name = "btnLuu";
             this.btnLuu.Size = new System.Drawing.Size(75, 23);
             this.btnLuu.TabIndex = 7;
@@ -111,6 +124,7 @@
             // 
             // n
             // 
+            this.n.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.n.AutoSize = true;
             this.n.Location = new System.Drawing.Point(412, 135);
             this.n.Name = "n";
@@ -120,6 +134,7 @@
             // 
             // txtNganh
             // 
+            this.txtNganh.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNganh.Location = new System.Drawing.Point(509, 129);
             this.txtNganh.Name = "txtNganh";
             this.txtNganh.Size = new System.Drawing.Size(100, 22);
@@ -127,6 +142,7 @@
             // 
             // txtLop
             // 
+            this.txtLop.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtLop.Location = new System.Drawing.Point(509, 191);
             this.txtLop.Name = "txtLop";
             this.txtLop.Size = new System.Drawing.Size(100, 22);
@@ -134,6 +150,7 @@
             // 
             // txtMaSV
             // 
+            this.txtMaSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMaSV.Location = new System.Drawing.Point(255, 132);
             this.txtMaSV.Name = "txtMaSV";
             this.txtMaSV.Size = new System.Drawing.Size(100, 22);
@@ -141,6 +158,7 @@
             // 
             // txtTen
             // 
+            this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTen.Location = new System.Drawing.Point(255, 194);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(100, 22);
@@ -148,23 +166,48 @@
             // 
             // txtSDT
             // 
-            this.txtSDT.Location = new System.Drawing.Point(255, 271);
+            this.txtSDT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtSDT.Location = new System.Drawing.Point(255, 252);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(100, 22);
             this.txtSDT.TabIndex = 3;
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(509, 265);
+            this.txtEmail.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtEmail.Location = new System.Drawing.Point(509, 252);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(100, 22);
             this.txtEmail.TabIndex = 6;
+            // 
+            // txtTenDangNhap
+            // 
+            this.txtTenDangNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTenDangNhap.Location = new System.Drawing.Point(255, 307);
+            this.txtTenDangNhap.Name = "txtTenDangNhap";
+            this.txtTenDangNhap.Size = new System.Drawing.Size(123, 22);
+            this.txtTenDangNhap.TabIndex = 8;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(143, 313);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(101, 16);
+            this.label1.TabIndex = 9;
+            this.label1.Text = "Tên đăng nhập:";
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // EditSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.txtTenDangNhap);
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtTen);
@@ -182,6 +225,7 @@
             this.Name = "EditSinhVien";
             this.Text = "Chỉnh sửa sinh viên";
             this.Load += new System.EventHandler(this.EditSinhVien_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -203,5 +247,8 @@
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtEmail;
+        private System.Windows.Forms.TextBox txtTenDangNhap;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

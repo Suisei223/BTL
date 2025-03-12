@@ -1,12 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace BTL
@@ -24,6 +18,8 @@ namespace BTL
             string username = txtTaiKhoan.Text; 
             string password = txtMatKhau.Text; 
             string role = CheckLogin(username, password);
+
+            Console.WriteLine("Role: " + role);  // Debug log
 
             if (role != null)
             {
@@ -55,9 +51,9 @@ namespace BTL
         private string CheckLogin(string username, string password)
         {
             string role = null;
-            using (SqlConnection connection = new SqlConnection(connectionString))
+            using (SqlConnection cnn = new SqlConnection(connectionString))
             {
-                SqlCommand cmd = new SqlCommand("sp_KiemTraDangNhap", connection);
+                SqlCommand cmd = new SqlCommand("sp_KiemTraDangNhap", cnn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TenDangNhap", username);
                 cmd.Parameters.AddWithValue("@MatKhau", password);
@@ -66,17 +62,10 @@ namespace BTL
                 roleParam.Direction = ParameterDirection.Output; 
                 cmd.Parameters.Add(roleParam);
 
-                try
-                {
-                    connection.Open();
-                    cmd.ExecuteNonQuery(); 
-                    connection.Close();
-                    role = roleParam.Value.ToString(); 
-                }
-                catch (Exception ex)
-                {
-                    errorProvider1.SetError(txtTaiKhoan, "Tài khoản hoặc mật khẩu không đúng");
-                }
+                cnn.Open();
+                cmd.ExecuteNonQuery(); 
+                cnn.Close();
+                role = roleParam.Value.ToString().Trim(); 
             }
             return role;
         }

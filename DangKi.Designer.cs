@@ -46,8 +46,11 @@
             // 
             // dk
             // 
+            this.dk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dk.AutoSize = true;
-            this.dk.Location = new System.Drawing.Point(313, 32);
+            this.dk.Location = new System.Drawing.Point(347, 65);
             this.dk.Name = "dk";
             this.dk.Size = new System.Drawing.Size(109, 16);
             this.dk.TabIndex = 10;
@@ -55,8 +58,11 @@
             // 
             // tk
             // 
+            this.tk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tk.AutoSize = true;
-            this.tk.Location = new System.Drawing.Point(127, 132);
+            this.tk.Location = new System.Drawing.Point(116, 155);
             this.tk.Name = "tk";
             this.tk.Size = new System.Drawing.Size(67, 16);
             this.tk.TabIndex = 10;
@@ -64,8 +70,11 @@
             // 
             // mk
             // 
+            this.mk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.mk.AutoSize = true;
-            this.mk.Location = new System.Drawing.Point(127, 189);
+            this.mk.Location = new System.Drawing.Point(116, 212);
             this.mk.Name = "mk";
             this.mk.Size = new System.Drawing.Size(61, 16);
             this.mk.TabIndex = 10;
@@ -73,8 +82,11 @@
             // 
             // xnmk
             // 
+            this.xnmk.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.xnmk.AutoSize = true;
-            this.xnmk.Location = new System.Drawing.Point(127, 249);
+            this.xnmk.Location = new System.Drawing.Point(116, 272);
             this.xnmk.Name = "xnmk";
             this.xnmk.Size = new System.Drawing.Size(119, 16);
             this.xnmk.TabIndex = 10;
@@ -82,8 +94,11 @@
             // 
             // cv
             // 
+            this.cv.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cv.AutoSize = true;
-            this.cv.Location = new System.Drawing.Point(431, 132);
+            this.cv.Location = new System.Drawing.Point(116, 327);
             this.cv.Name = "cv";
             this.cv.Size = new System.Drawing.Size(54, 16);
             this.cv.TabIndex = 10;
@@ -91,7 +106,8 @@
             // 
             // btnDangKy
             // 
-            this.btnDangKy.Location = new System.Drawing.Point(537, 325);
+            this.btnDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.btnDangKy.Location = new System.Drawing.Point(613, 363);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(118, 51);
             this.btnDangKy.TabIndex = 6;
@@ -101,31 +117,43 @@
             // 
             // txtTaiKhoan
             // 
-            this.txtTaiKhoan.Location = new System.Drawing.Point(292, 129);
+            this.txtTaiKhoan.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtTaiKhoan.Location = new System.Drawing.Point(281, 152);
             this.txtTaiKhoan.Name = "txtTaiKhoan";
-            this.txtTaiKhoan.Size = new System.Drawing.Size(100, 22);
+            this.txtTaiKhoan.Size = new System.Drawing.Size(275, 22);
             this.txtTaiKhoan.TabIndex = 1;
             // 
             // txtMatKhau
             // 
-            this.txtMatKhau.Location = new System.Drawing.Point(292, 183);
+            this.txtMatKhau.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtMatKhau.Location = new System.Drawing.Point(281, 206);
             this.txtMatKhau.Name = "txtMatKhau";
             this.txtMatKhau.PasswordChar = '*';
-            this.txtMatKhau.Size = new System.Drawing.Size(100, 22);
+            this.txtMatKhau.Size = new System.Drawing.Size(275, 22);
             this.txtMatKhau.TabIndex = 2;
             // 
             // txtXacNhanMatKhau
             // 
-            this.txtXacNhanMatKhau.Location = new System.Drawing.Point(292, 243);
+            this.txtXacNhanMatKhau.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.txtXacNhanMatKhau.Location = new System.Drawing.Point(281, 266);
             this.txtXacNhanMatKhau.Name = "txtXacNhanMatKhau";
             this.txtXacNhanMatKhau.PasswordChar = '*';
-            this.txtXacNhanMatKhau.Size = new System.Drawing.Size(100, 22);
+            this.txtXacNhanMatKhau.Size = new System.Drawing.Size(275, 22);
             this.txtXacNhanMatKhau.TabIndex = 3;
             // 
             // rdoSinhVien
             // 
+            this.rdoSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoSinhVien.AutoSize = true;
-            this.rdoSinhVien.Location = new System.Drawing.Point(492, 158);
+            this.rdoSinhVien.Location = new System.Drawing.Point(281, 327);
             this.rdoSinhVien.Name = "rdoSinhVien";
             this.rdoSinhVien.Size = new System.Drawing.Size(82, 20);
             this.rdoSinhVien.TabIndex = 11;
@@ -135,8 +163,11 @@
             // 
             // rdoThuThu
             // 
+            this.rdoThuThu.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.rdoThuThu.AutoSize = true;
-            this.rdoThuThu.Location = new System.Drawing.Point(624, 158);
+            this.rdoThuThu.Location = new System.Drawing.Point(456, 327);
             this.rdoThuThu.Name = "rdoThuThu";
             this.rdoThuThu.Size = new System.Drawing.Size(71, 20);
             this.rdoThuThu.TabIndex = 12;
