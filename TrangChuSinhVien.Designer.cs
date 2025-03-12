@@ -55,6 +55,7 @@
             this.ttk.TabStop = false;
             this.ttk.Text = "Thoát tài khoản";
             this.ttk.UseVisualStyleBackColor = true;
+            this.ttk.Click += new System.EventHandler(this.ttk_Click);
             // 
             // ktsdm
             // 
@@ -78,6 +79,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(99, 84);
             this.dataGridView1.Name = "dataGridView1";
@@ -96,6 +99,7 @@
             this.Controls.Add(this.ktsdm);
             this.Controls.Add(this.ttk);
             this.Controls.Add(this.tcsv);
+            this.IsMdiContainer = true;
             this.Name = "TrangChuSinhVien";
             this.Text = "TrangChuSinhVien";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

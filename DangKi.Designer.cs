@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dk = new System.Windows.Forms.Label();
             this.tk = new System.Windows.Forms.Label();
             this.mk = new System.Windows.Forms.Label();
@@ -39,6 +40,8 @@
             this.txtXacNhanMatKhau = new System.Windows.Forms.TextBox();
             this.rdoSinhVien = new System.Windows.Forms.RadioButton();
             this.rdoThuThu = new System.Windows.Forms.RadioButton();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dk
@@ -124,10 +127,10 @@
             this.rdoSinhVien.AutoSize = true;
             this.rdoSinhVien.Location = new System.Drawing.Point(492, 158);
             this.rdoSinhVien.Name = "rdoSinhVien";
-            this.rdoSinhVien.Size = new System.Drawing.Size(84, 20);
+            this.rdoSinhVien.Size = new System.Drawing.Size(82, 20);
             this.rdoSinhVien.TabIndex = 11;
             this.rdoSinhVien.TabStop = true;
-            this.rdoSinhVien.Text = "Sinh Viên";
+            this.rdoSinhVien.Text = "Sinh viên";
             this.rdoSinhVien.UseVisualStyleBackColor = true;
             // 
             // rdoThuThu
@@ -135,11 +138,15 @@
             this.rdoThuThu.AutoSize = true;
             this.rdoThuThu.Location = new System.Drawing.Point(624, 158);
             this.rdoThuThu.Name = "rdoThuThu";
-            this.rdoThuThu.Size = new System.Drawing.Size(77, 20);
+            this.rdoThuThu.Size = new System.Drawing.Size(71, 20);
             this.rdoThuThu.TabIndex = 12;
             this.rdoThuThu.TabStop = true;
-            this.rdoThuThu.Text = "Thủ Thư";
+            this.rdoThuThu.Text = "Thủ thư";
             this.rdoThuThu.UseVisualStyleBackColor = true;
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
             // 
             // DangKi
             // 
@@ -160,6 +167,7 @@
             this.Name = "DangKi";
             this.Text = "Đăng kí tài khoản";
             this.Load += new System.EventHandler(this.Form1_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -178,5 +186,6 @@
         private System.Windows.Forms.TextBox txtXacNhanMatKhau;
         private System.Windows.Forms.RadioButton rdoSinhVien;
         private System.Windows.Forms.RadioButton rdoThuThu;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

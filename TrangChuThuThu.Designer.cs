@@ -43,6 +43,8 @@
             // 
             // tctt
             // 
+            this.tctt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tctt.AutoSize = true;
             this.tctt.Location = new System.Drawing.Point(306, 23);
             this.tctt.Name = "tctt";
@@ -52,6 +54,8 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(110, 84);
             this.dataGridView1.Name = "dataGridView1";
@@ -62,6 +66,8 @@
             // 
             // ttsv
             // 
+            this.ttsv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ttsv.Location = new System.Drawing.Point(110, 320);
             this.ttsv.Name = "ttsv";
             this.ttsv.Size = new System.Drawing.Size(75, 42);
@@ -71,6 +77,8 @@
             // 
             // tttt
             // 
+            this.tttt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tttt.Location = new System.Drawing.Point(110, 385);
             this.tttt.Name = "tttt";
             this.tttt.Size = new System.Drawing.Size(75, 41);
@@ -80,6 +88,8 @@
             // 
             // cssv
             // 
+            this.cssv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cssv.Location = new System.Drawing.Point(263, 320);
             this.cssv.Name = "cssv";
             this.cssv.Size = new System.Drawing.Size(75, 42);
@@ -89,6 +99,8 @@
             // 
             // cstt
             // 
+            this.cstt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.cstt.Location = new System.Drawing.Point(263, 385);
             this.cstt.Name = "cstt";
             this.cstt.Size = new System.Drawing.Size(75, 41);
@@ -98,6 +110,8 @@
             // 
             // css
             // 
+            this.css.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.css.Location = new System.Drawing.Point(414, 320);
             this.css.Name = "css";
             this.css.Size = new System.Drawing.Size(81, 42);
@@ -107,6 +121,8 @@
             // 
             // csp
             // 
+            this.csp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.csp.Location = new System.Drawing.Point(414, 385);
             this.csp.Name = "csp";
             this.csp.Size = new System.Drawing.Size(81, 41);
@@ -116,6 +132,8 @@
             // 
             // ttpm
             // 
+            this.ttpm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ttpm.Location = new System.Drawing.Point(557, 320);
             this.ttpm.Name = "ttpm";
             this.ttpm.Size = new System.Drawing.Size(86, 42);
@@ -125,12 +143,15 @@
             // 
             // ttk
             // 
+            this.ttk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.ttk.Location = new System.Drawing.Point(557, 385);
             this.ttk.Name = "ttk";
             this.ttk.Size = new System.Drawing.Size(86, 41);
             this.ttk.TabIndex = 9;
             this.ttk.Text = "Thoát tài khoản";
             this.ttk.UseVisualStyleBackColor = true;
+            this.ttk.Click += new System.EventHandler(this.ttk_Click);
             // 
             // TrangChuThuThu
             // 
@@ -147,6 +168,7 @@
             this.Controls.Add(this.ttsv);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tctt);
+            this.IsMdiContainer = true;
             this.Name = "TrangChuThuThu";
             this.Text = "TrangChuThuThu";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();

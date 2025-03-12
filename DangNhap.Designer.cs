@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.dntk = new System.Windows.Forms.Label();
             this.tk = new System.Windows.Forms.Label();
             this.mk = new System.Windows.Forms.Label();
@@ -35,6 +36,8 @@
             this.dn = new System.Windows.Forms.Button();
             this.txtMatKhau = new System.Windows.Forms.TextBox();
             this.txtTaiKhoan = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // dntk
@@ -100,6 +103,10 @@
             this.txtTaiKhoan.Size = new System.Drawing.Size(100, 22);
             this.txtTaiKhoan.TabIndex = 1;
             // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
             // DangNhap
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -114,6 +121,7 @@
             this.Controls.Add(this.dntk);
             this.Name = "DangNhap";
             this.Text = "Đăng nhập tài khoản";
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -128,6 +136,7 @@
         private System.Windows.Forms.Button dn;
         private System.Windows.Forms.TextBox txtMatKhau;
         private System.Windows.Forms.TextBox txtTaiKhoan;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }
 

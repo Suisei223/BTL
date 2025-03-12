@@ -13,7 +13,7 @@ namespace BTL
 {
     public partial class DangNhap : Form
     {
-        string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;"
+        string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
         public DangNhap()
         {
             InitializeComponent();
@@ -21,45 +21,27 @@ namespace BTL
 
         private void dn_Click(object sender, EventArgs e)
         {
-            string tenDangNhap = txtTaiKhoan.Text.Trim();
-            string matKhau = txtMatKhau.Text;
+            string username = txtTaiKhoan.Text; 
+            string password = txtMatKhau.Text; 
+            string role = CheckLogin(username, password);
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            if (role != null)
             {
-                string query = "SELECT VaiTro FROM tblUser WHERE TenDangNhap = @TenDangNhap AND MatKhau = @MatKhau";
-                using (SqlCommand cmd = new SqlCommand(query, conn))
+                if (role == "Sinh viên")
                 {
-                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
-                    cmd.Parameters.AddWithValue("@MatKhau", matKhau);
-
-                    conn.Open();
-                    SqlDataReader reader = cmd.ExecuteReader();
-
-                    if (reader.Read())
-                    {
-                        string vaiTro = reader["VaiTro"].ToString();
-                        MessageBox.Show("Đăng nhập thành công!", "Thông báo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-
-                        if (vaiTro == "Sinh viên")
-                        {
-                            TrangChuSinhVien editForm = new TrangChuSinhVien();
-                            this.Hide();
-                            editForm.ShowDialog();
-                            this.Show();
-                        }
-                        else if (vaiTro == "Thủ thư")
-                        {
-                            TrangChuThuThu editTT = new TrangChuThuThu();
-                            this.Hide();
-                            editTT.ShowDialog();
-                            this.Show();
-                        }
-                    }
-                    else
-                    {
-                        MessageBox.Show("Sai tài khoản hoặc mật khẩu!", "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    }
+                    TrangChuSinhVien trangSinhVien = new TrangChuSinhVien();
+                    trangSinhVien.Show();
                 }
+                else if (role == "Thủ thư")
+                {
+                    TrangChuThuThu trangThuThu = new TrangChuThuThu();
+                    trangThuThu.Show();
+                }
+                this.Hide();
+            }
+            else
+            {
+                errorProvider1.SetError(txtTaiKhoan, "Tài khoản hoặc mật khẩu không đúng");
             }
         }
 
@@ -69,6 +51,34 @@ namespace BTL
             this.Hide();
             registerForm.ShowDialog();
             this.Show();
+        }
+        private string CheckLogin(string username, string password)
+        {
+            string role = null;
+            using (SqlConnection connection = new SqlConnection(connectionString))
+            {
+                SqlCommand cmd = new SqlCommand("sp_KiemTraDangNhap", connection);
+                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.Parameters.AddWithValue("@TenDangNhap", username);
+                cmd.Parameters.AddWithValue("@MatKhau", password);
+
+                SqlParameter roleParam = new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50);
+                roleParam.Direction = ParameterDirection.Output; 
+                cmd.Parameters.Add(roleParam);
+
+                try
+                {
+                    connection.Open();
+                    cmd.ExecuteNonQuery(); 
+                    connection.Close();
+                    role = roleParam.Value.ToString(); 
+                }
+                catch (Exception ex)
+                {
+                    errorProvider1.SetError(txtTaiKhoan, "Tài khoản hoặc mật khẩu không đúng");
+                }
+            }
+            return role;
         }
     }
 }
