@@ -23,5 +23,15 @@ namespace BTL
             dn.Show();
             this.Close();
         }
+
+        private void cssv_Click(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void TrangChuThuThu_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

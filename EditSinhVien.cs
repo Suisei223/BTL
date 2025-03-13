@@ -80,16 +80,14 @@ namespace BTL
                     cmd.Parameters.AddWithValue("@Nganh", nganh);
                     cmd.Parameters.AddWithValue("@SDT", sdt);
                     cmd.Parameters.AddWithValue("@Email", email);
-                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap); 
-
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
                     try
-                    {
-                        conn.Open();
-                        cmd.ExecuteNonQuery();
-                        this.Hide();
+                    { 
                         TrangChuSinhVien trangSinhVien = new TrangChuSinhVien();
-                        trangSinhVien.MdiParent = this.MdiParent;
                         trangSinhVien.Show();
+                        this.Close();
                     }
                     catch (Exception ex)
                     {

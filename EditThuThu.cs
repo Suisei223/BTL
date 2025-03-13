@@ -13,8 +13,8 @@ namespace BTL
 {
     public partial class EditThuThu : Form
     {
+        string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
         private string tenDangNhap;
-        string connectionString = "Data Source=LAPTOP-TLCPOEVM\\TRUONG;Initial Catalog=QLThuVien;Integrated Security=True";
 
         public EditThuThu(string tenDangNhap)
         {
@@ -22,35 +22,71 @@ namespace BTL
             this.tenDangNhap = tenDangNhap;
         }
 
-        private void btnSave_Click(object sender, EventArgs e)
-        {
-            string quyenHan = rdoXem.Checked ? "Chỉ xem" : rdoXemSua.Checked ? "Xem và sửa" : "Tất cả quyền hạn";
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                string query = @"INSERT INTO tblThuThu (MaThuThu, TenThuThu, SDT, Email, QuyenHan, TenDangNhap) 
-                                 VALUES (@MaThuThu, @TenThuThu, @SDT, @Email, @QuyenHan, @TenDangNhap)";
-
-                using (SqlCommand cmd = new SqlCommand(query, conn))
-                {
-                    cmd.Parameters.AddWithValue("@MaThuThu", int.Parse(txtMaThuThu.Text));
-                    cmd.Parameters.AddWithValue("@TenThuThu", txtTenThuThu.Text);
-                    cmd.Parameters.AddWithValue("@SDT", txtSDT.Text);
-                    cmd.Parameters.AddWithValue("@Email", txtEmail.Text);
-                    cmd.Parameters.AddWithValue("@QuyenHan", quyenHan);
-                    cmd.Parameters.AddWithValue("@TenDangNhap", this.tenDangNhap);
-
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
-                    conn.Close();
-                }
-            }
-            MessageBox.Show("Thêm thủ thư thành công!");
-        }
-
         private void xn_Click(object sender, EventArgs e)
         {
+            string hoTen = txtTenThuThu.Text.Trim();
+            string quyen = txtQuyen.Text.Trim();
+            string sdt = txtSDT.Text.Trim();
+            string email = txtEmail.Text.Trim();
 
+            bool isValid = true;
+            errorProvider1.Clear();
+
+            if (string.IsNullOrEmpty(hoTen))
+            {
+                errorProvider1.SetError(txtTenThuThu, "Vui lòng nhập họ tên thủ thư.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrEmpty(quyen))
+            {
+                errorProvider1.SetError(txtQuyen, "Vui lòng nhập quyền.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrEmpty(sdt))
+            {
+                errorProvider1.SetError(txtSDT, "Vui lòng nhập số điện thoại.");
+                isValid = false;
+            }
+
+            if (string.IsNullOrEmpty(email))
+            {
+                errorProvider1.SetError(txtEmail, "Vui lòng nhập email.");
+                isValid = false;
+            }
+
+            if (isValid)
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_ThemThuThu", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@HoTen", hoTen);
+                    cmd.Parameters.AddWithValue("@Quyen", quyen);
+                    cmd.Parameters.AddWithValue("@SDT", sdt);
+                    cmd.Parameters.AddWithValue("@Email", email);
+                    cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        TrangChuThuThu trangThuThu = new TrangChuThuThu();
+                        trangThuThu.Show();
+                        this.Close();
+                    }
+                    catch (Exception ex)
+                    {
+                        errorProvider1.SetError(btnLuu, "Lỗi khi lưu thông tin: " + ex.Message);
+                    }
+                }
+            }
+        }
+
+        private void EditThuThu_Load(object sender, EventArgs e)
+        {
+            txtTenDangNhap.Text = tenDangNhap;
+            txtTenDangNhap.Enabled = false;
         }
     }
 }

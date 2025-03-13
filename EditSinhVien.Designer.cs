@@ -30,7 +30,6 @@
         {
             this.components = new System.ComponentModel.Container();
             this.cssv = new System.Windows.Forms.Label();
-            this.msv = new System.Windows.Forms.Label();
             this.tsv = new System.Windows.Forms.Label();
             this.sdt = new System.Windows.Forms.Label();
             this.l = new System.Windows.Forms.Label();
@@ -39,7 +38,6 @@
             this.n = new System.Windows.Forms.Label();
             this.txtNganh = new System.Windows.Forms.TextBox();
             this.txtLop = new System.Windows.Forms.TextBox();
-            this.txtMaSV = new System.Windows.Forms.TextBox();
             this.txtTen = new System.Windows.Forms.TextBox();
             this.txtSDT = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
@@ -57,19 +55,9 @@
             this.cssv.Font = new System.Drawing.Font("Microsoft Sans Serif", 16.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cssv.Location = new System.Drawing.Point(249, 34);
             this.cssv.Name = "cssv";
-            this.cssv.Size = new System.Drawing.Size(262, 32);
+            this.cssv.Size = new System.Drawing.Size(307, 32);
             this.cssv.TabIndex = 0;
-            this.cssv.Text = "Chỉnh sửa sinh viên";
-            // 
-            // msv
-            // 
-            this.msv.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.msv.AutoSize = true;
-            this.msv.Location = new System.Drawing.Point(143, 135);
-            this.msv.Name = "msv";
-            this.msv.Size = new System.Drawing.Size(81, 16);
-            this.msv.TabIndex = 1;
-            this.msv.Text = "Mã sinh viên";
+            this.cssv.Text = "Nhập thông tin cá nhân";
             // 
             // tsv
             // 
@@ -114,9 +102,9 @@
             // btnLuu
             // 
             this.btnLuu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnLuu.Location = new System.Drawing.Point(604, 368);
+            this.btnLuu.Location = new System.Drawing.Point(592, 332);
             this.btnLuu.Name = "btnLuu";
-            this.btnLuu.Size = new System.Drawing.Size(75, 23);
+            this.btnLuu.Size = new System.Drawing.Size(138, 50);
             this.btnLuu.TabIndex = 7;
             this.btnLuu.Text = "Lưu";
             this.btnLuu.UseVisualStyleBackColor = true;
@@ -148,18 +136,10 @@
             this.txtLop.Size = new System.Drawing.Size(100, 22);
             this.txtLop.TabIndex = 5;
             // 
-            // txtMaSV
-            // 
-            this.txtMaSV.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaSV.Location = new System.Drawing.Point(255, 132);
-            this.txtMaSV.Name = "txtMaSV";
-            this.txtMaSV.Size = new System.Drawing.Size(100, 22);
-            this.txtMaSV.TabIndex = 1;
-            // 
             // txtTen
             // 
             this.txtTen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTen.Location = new System.Drawing.Point(255, 194);
+            this.txtTen.Location = new System.Drawing.Point(250, 194);
             this.txtTen.Name = "txtTen";
             this.txtTen.Size = new System.Drawing.Size(100, 22);
             this.txtTen.TabIndex = 2;
@@ -167,7 +147,7 @@
             // txtSDT
             // 
             this.txtSDT.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtSDT.Location = new System.Drawing.Point(255, 252);
+            this.txtSDT.Location = new System.Drawing.Point(250, 252);
             this.txtSDT.Name = "txtSDT";
             this.txtSDT.Size = new System.Drawing.Size(100, 22);
             this.txtSDT.TabIndex = 3;
@@ -183,7 +163,7 @@
             // txtTenDangNhap
             // 
             this.txtTenDangNhap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Left | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtTenDangNhap.Location = new System.Drawing.Point(255, 307);
+            this.txtTenDangNhap.Location = new System.Drawing.Point(250, 132);
             this.txtTenDangNhap.Name = "txtTenDangNhap";
             this.txtTenDangNhap.Size = new System.Drawing.Size(123, 22);
             this.txtTenDangNhap.TabIndex = 8;
@@ -191,7 +171,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(143, 313);
+            this.label1.Location = new System.Drawing.Point(143, 135);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(101, 16);
             this.label1.TabIndex = 9;
@@ -211,7 +191,6 @@
             this.Controls.Add(this.txtEmail);
             this.Controls.Add(this.txtSDT);
             this.Controls.Add(this.txtTen);
-            this.Controls.Add(this.txtMaSV);
             this.Controls.Add(this.txtLop);
             this.Controls.Add(this.txtNganh);
             this.Controls.Add(this.n);
@@ -220,7 +199,6 @@
             this.Controls.Add(this.l);
             this.Controls.Add(this.sdt);
             this.Controls.Add(this.tsv);
-            this.Controls.Add(this.msv);
             this.Controls.Add(this.cssv);
             this.Name = "EditSinhVien";
             this.Text = "Chỉnh sửa sinh viên";
@@ -234,7 +212,6 @@
         #endregion
 
         private System.Windows.Forms.Label cssv;
-        private System.Windows.Forms.Label msv;
         private System.Windows.Forms.Label tsv;
         private System.Windows.Forms.Label sdt;
         private System.Windows.Forms.Label l;
@@ -243,7 +220,6 @@
         private System.Windows.Forms.Label n;
         private System.Windows.Forms.TextBox txtNganh;
         private System.Windows.Forms.TextBox txtLop;
-        private System.Windows.Forms.TextBox txtMaSV;
         private System.Windows.Forms.TextBox txtTen;
         private System.Windows.Forms.TextBox txtSDT;
         private System.Windows.Forms.TextBox txtEmail;

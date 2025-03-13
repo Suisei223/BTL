@@ -33,12 +33,15 @@
             this.ttsv = new System.Windows.Forms.Button();
             this.tttt = new System.Windows.Forms.Button();
             this.cssv = new System.Windows.Forms.Button();
-            this.cstt = new System.Windows.Forms.Button();
-            this.css = new System.Windows.Forms.Button();
-            this.csp = new System.Windows.Forms.Button();
             this.ttpm = new System.Windows.Forms.Button();
             this.ttk = new System.Windows.Forms.Button();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.sáchToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.phiếuMượnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // tctt
@@ -46,7 +49,7 @@
             this.tctt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.tctt.AutoSize = true;
-            this.tctt.Location = new System.Drawing.Point(306, 23);
+            this.tctt.Location = new System.Drawing.Point(411, 24);
             this.tctt.Name = "tctt";
             this.tctt.Size = new System.Drawing.Size(107, 16);
             this.tctt.TabIndex = 0;
@@ -54,124 +57,125 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(110, 84);
+            this.dataGridView1.Location = new System.Drawing.Point(263, 67);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(533, 205);
+            this.dataGridView1.Size = new System.Drawing.Size(703, 575);
             this.dataGridView1.TabIndex = 1;
             // 
             // ttsv
             // 
-            this.ttsv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ttsv.Location = new System.Drawing.Point(110, 320);
+            this.ttsv.Location = new System.Drawing.Point(28, 284);
             this.ttsv.Name = "ttsv";
-            this.ttsv.Size = new System.Drawing.Size(75, 42);
+            this.ttsv.Size = new System.Drawing.Size(173, 48);
             this.ttsv.TabIndex = 2;
             this.ttsv.Text = "Thông tin sinh viên";
             this.ttsv.UseVisualStyleBackColor = true;
             // 
             // tttt
             // 
-            this.tttt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.tttt.Location = new System.Drawing.Point(110, 385);
+            this.tttt.Location = new System.Drawing.Point(28, 343);
             this.tttt.Name = "tttt";
-            this.tttt.Size = new System.Drawing.Size(75, 41);
+            this.tttt.Size = new System.Drawing.Size(173, 47);
             this.tttt.TabIndex = 3;
             this.tttt.Text = "Thông tin thủ thư ";
             this.tttt.UseVisualStyleBackColor = true;
             // 
             // cssv
             // 
-            this.cssv.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cssv.Location = new System.Drawing.Point(263, 320);
+            this.cssv.Location = new System.Drawing.Point(28, 467);
             this.cssv.Name = "cssv";
-            this.cssv.Size = new System.Drawing.Size(75, 42);
+            this.cssv.Size = new System.Drawing.Size(173, 48);
             this.cssv.TabIndex = 4;
-            this.cssv.Text = "Chỉnh sửa sinh viên";
+            this.cssv.Text = "Thông tin sách";
             this.cssv.UseVisualStyleBackColor = true;
-            // 
-            // cstt
-            // 
-            this.cstt.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cstt.Location = new System.Drawing.Point(263, 385);
-            this.cstt.Name = "cstt";
-            this.cstt.Size = new System.Drawing.Size(75, 41);
-            this.cstt.TabIndex = 5;
-            this.cstt.Text = "Chỉnh sửa thủ thư";
-            this.cstt.UseVisualStyleBackColor = true;
-            // 
-            // css
-            // 
-            this.css.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.css.Location = new System.Drawing.Point(414, 320);
-            this.css.Name = "css";
-            this.css.Size = new System.Drawing.Size(81, 42);
-            this.css.TabIndex = 6;
-            this.css.Text = "Chỉnh sửa sách";
-            this.css.UseVisualStyleBackColor = true;
-            // 
-            // csp
-            // 
-            this.csp.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.csp.Location = new System.Drawing.Point(414, 385);
-            this.csp.Name = "csp";
-            this.csp.Size = new System.Drawing.Size(81, 41);
-            this.csp.TabIndex = 7;
-            this.csp.Text = "Chỉnh sửa phiếu mượn";
-            this.csp.UseVisualStyleBackColor = true;
+            this.cssv.Click += new System.EventHandler(this.cssv_Click);
             // 
             // ttpm
             // 
-            this.ttpm.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ttpm.Location = new System.Drawing.Point(557, 320);
+            this.ttpm.Location = new System.Drawing.Point(28, 401);
             this.ttpm.Name = "ttpm";
-            this.ttpm.Size = new System.Drawing.Size(86, 42);
+            this.ttpm.Size = new System.Drawing.Size(173, 48);
             this.ttpm.TabIndex = 8;
             this.ttpm.Text = "Thông tin phiếu mượn";
             this.ttpm.UseVisualStyleBackColor = true;
             // 
             // ttk
             // 
-            this.ttk.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.ttk.Location = new System.Drawing.Point(557, 385);
+            this.ttk.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.ttk.Location = new System.Drawing.Point(28, 600);
             this.ttk.Name = "ttk";
-            this.ttk.Size = new System.Drawing.Size(86, 41);
+            this.ttk.Size = new System.Drawing.Size(173, 41);
             this.ttk.TabIndex = 9;
             this.ttk.Text = "Thoát tài khoản";
             this.ttk.UseVisualStyleBackColor = true;
             this.ttk.Click += new System.EventHandler(this.ttk_Click);
             // 
+            // menuStrip1
+            // 
+            this.menuStrip1.ImageScalingSize = new System.Drawing.Size(20, 20);
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(1001, 28);
+            this.menuStrip1.TabIndex = 11;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.sáchToolStripMenuItem,
+            this.phiếuMượnToolStripMenuItem,
+            this.sinhViênToolStripMenuItem});
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
+            this.toolStripMenuItem1.Text = "Quản lý";
+            // 
+            // sáchToolStripMenuItem
+            // 
+            this.sáchToolStripMenuItem.Name = "sáchToolStripMenuItem";
+            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sáchToolStripMenuItem.Text = "Sách";
+            // 
+            // phiếuMượnToolStripMenuItem
+            // 
+            this.phiếuMượnToolStripMenuItem.Name = "phiếuMượnToolStripMenuItem";
+            this.phiếuMượnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.phiếuMượnToolStripMenuItem.Text = "Phiếu mượn";
+            // 
+            // sinhViênToolStripMenuItem
+            // 
+            this.sinhViênToolStripMenuItem.Name = "sinhViênToolStripMenuItem";
+            this.sinhViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
+            this.sinhViênToolStripMenuItem.Text = "Sinh viên";
+            // 
             // TrangChuThuThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1001, 694);
             this.Controls.Add(this.ttk);
             this.Controls.Add(this.ttpm);
-            this.Controls.Add(this.csp);
-            this.Controls.Add(this.css);
-            this.Controls.Add(this.cstt);
             this.Controls.Add(this.cssv);
             this.Controls.Add(this.tttt);
             this.Controls.Add(this.ttsv);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tctt);
+            this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
+            this.MainMenuStrip = this.menuStrip1;
             this.Name = "TrangChuThuThu";
             this.Text = "TrangChuThuThu";
+            this.Load += new System.EventHandler(this.TrangChuThuThu_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -184,10 +188,12 @@
         private System.Windows.Forms.Button ttsv;
         private System.Windows.Forms.Button tttt;
         private System.Windows.Forms.Button cssv;
-        private System.Windows.Forms.Button cstt;
-        private System.Windows.Forms.Button css;
-        private System.Windows.Forms.Button csp;
         private System.Windows.Forms.Button ttpm;
         private System.Windows.Forms.Button ttk;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem sáchToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem phiếuMượnToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sinhViênToolStripMenuItem;
     }
 }

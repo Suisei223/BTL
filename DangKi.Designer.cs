@@ -41,6 +41,7 @@
             this.rdoSinhVien = new System.Windows.Forms.RadioButton();
             this.rdoThuThu = new System.Windows.Forms.RadioButton();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.btnClose = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -107,7 +108,7 @@
             // btnDangKy
             // 
             this.btnDangKy.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.btnDangKy.Location = new System.Drawing.Point(613, 363);
+            this.btnDangKy.Location = new System.Drawing.Point(501, 368);
             this.btnDangKy.Name = "btnDangKy";
             this.btnDangKy.Size = new System.Drawing.Size(118, 51);
             this.btnDangKy.TabIndex = 6;
@@ -179,11 +180,22 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // btnClose
+            // 
+            this.btnClose.Location = new System.Drawing.Point(652, 368);
+            this.btnClose.Name = "btnClose";
+            this.btnClose.Size = new System.Drawing.Size(111, 51);
+            this.btnClose.TabIndex = 13;
+            this.btnClose.Text = "Đóng";
+            this.btnClose.UseVisualStyleBackColor = true;
+            this.btnClose.Click += new System.EventHandler(this.btnClose_Click);
+            // 
             // DangKi
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnClose);
             this.Controls.Add(this.rdoThuThu);
             this.Controls.Add(this.rdoSinhVien);
             this.Controls.Add(this.txtXacNhanMatKhau);
@@ -218,5 +230,6 @@
         private System.Windows.Forms.RadioButton rdoSinhVien;
         private System.Windows.Forms.RadioButton rdoThuThu;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnClose;
     }
 }

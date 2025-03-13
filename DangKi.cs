@@ -14,6 +14,7 @@ namespace BTL
     public partial class DangKi : Form
     {
         string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
+        
         public DangKi()
         {
             InitializeComponent();
@@ -31,7 +32,6 @@ namespace BTL
             string xacNhanMatKhau = txtXacNhanMatKhau.Text;
             string vaiTro = rdoSinhVien.Checked ? "Sinh viên" : "Thủ thư";
 
-            // Kiểm tra các trường thông tin
             if (string.IsNullOrEmpty(tenDangNhap) || string.IsNullOrEmpty(matKhau) || string.IsNullOrEmpty(xacNhanMatKhau))
             {
                 errorProvider1.SetError(txtTaiKhoan, "Vui lòng nhập đầy đủ thông tin!");
@@ -48,7 +48,6 @@ namespace BTL
                 return;
             }
 
-            // Sử dụng mật khẩu trực tiếp mà không cần mã hóa
             string matKhauText = matKhau;
 
             using (SqlConnection conn = new SqlConnection(connectionString))
@@ -57,27 +56,22 @@ namespace BTL
                 SqlCommand cmd = new SqlCommand("sp_ThemUser", conn);
                 cmd.CommandType = CommandType.StoredProcedure;
                 cmd.Parameters.AddWithValue("@TenDangNhap", tenDangNhap);
-                cmd.Parameters.AddWithValue("@MatKhau", matKhauText);  // Truyền mật khẩu trực tiếp
+                cmd.Parameters.AddWithValue("@MatKhau", matKhauText);  
                 cmd.Parameters.AddWithValue("@VaiTro", vaiTro);
 
                 cmd.ExecuteNonQuery();
 
+                this.Hide();
                 if (vaiTro == "Sinh viên")
                 {
-                    EditSinhVien editForm = new EditSinhVien(tenDangNhap);
-                    this.Hide();
-                    editForm.ShowDialog();
-                    this.Show();
+                    EditSinhVien editForm = new EditSinhVien(tenDangNhap);  
+                    editForm.ShowDialog();  
                 }
                 else if (vaiTro == "Thủ thư")
                 {
-                    EditThuThu editTT = new EditThuThu(tenDangNhap);
-                    this.Hide();
-                    editTT.ShowDialog();
-                    this.Show();
+                    EditThuThu editForm = new EditThuThu(tenDangNhap);  
+                    editForm.ShowDialog();  
                 }
-
-                // Ẩn form đăng ký
                 this.Close();
             }
         }
@@ -121,6 +115,11 @@ namespace BTL
             {
                 btnDangKy.Enabled = false;
             }
+        }
+
+        private void btnClose_Click(object sender, EventArgs e)
+        {
+            this.Close();
         }
     }
 }
