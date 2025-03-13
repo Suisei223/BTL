@@ -13,7 +13,7 @@ namespace BTL
 {
     public partial class EditSinhVien : Form
     {
-        string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
+        string connectionString = "Server= DESKTOP-PA21PBT\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
         private string tenDangNhap;
 
         public EditSinhVien(string tenDangNhap)

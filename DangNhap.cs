@@ -7,7 +7,7 @@ namespace BTL
 {
     public partial class DangNhap : Form
     {
-        string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
+        string connectionString = "Server= DESKTOP-PA21PBT\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
         public DangNhap()
         {
             InitializeComponent();
@@ -25,15 +25,20 @@ namespace BTL
             {
                 if (role == "Sinh viên")
                 {
+                    this.Hide();    
                     TrangChuSinhVien trangSinhVien = new TrangChuSinhVien();
-                    trangSinhVien.Show();
+                    trangSinhVien.ShowDialog();
+                    this.Show();
+
                 }
                 else if (role == "Thủ thư")
                 {
+                    this.Hide();
                     TrangChuThuThu trangThuThu = new TrangChuThuThu();
-                    trangThuThu.Show();
+                    trangThuThu.ShowDialog();
+                    this.Show();
                 }
-                this.Hide();
+                
             }
             else
             {
@@ -61,11 +66,13 @@ namespace BTL
                 SqlParameter roleParam = new SqlParameter("@VaiTro", SqlDbType.NVarChar, 50);
                 roleParam.Direction = ParameterDirection.Output; 
                 cmd.Parameters.Add(roleParam);
-
                 cnn.Open();
                 cmd.ExecuteNonQuery(); 
                 cnn.Close();
-                role = roleParam.Value.ToString().Trim(); 
+                if (roleParam.Value == DBNull.Value)
+                    role = null;
+                else
+                    role = roleParam.Value.ToString().Trim();
             }
             return role;
         }

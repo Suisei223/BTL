@@ -17,11 +17,9 @@ namespace BTL
             InitializeComponent();
         }
 
-        private void ttk_Click(object sender, EventArgs e)
+        private void ktttcn_Click(object sender, EventArgs e)
         {
-            DangNhap dn = new DangNhap();
-            dn.Show();
-            this.Close();
+
         }
     }
 }

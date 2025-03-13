@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             this.tcsv = new System.Windows.Forms.Label();
-            this.ttk = new System.Windows.Forms.Button();
             this.ktsdm = new System.Windows.Forms.Button();
             this.tcs = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ktttcn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -45,17 +45,6 @@
             this.tcsv.Size = new System.Drawing.Size(197, 26);
             this.tcsv.TabIndex = 0;
             this.tcsv.Text = "Trang chủ sinh viên";
-            // 
-            // ttk
-            // 
-            this.ttk.Location = new System.Drawing.Point(44, 393);
-            this.ttk.Name = "ttk";
-            this.ttk.Size = new System.Drawing.Size(106, 45);
-            this.ttk.TabIndex = 1;
-            this.ttk.TabStop = false;
-            this.ttk.Text = "Thoát tài khoản";
-            this.ttk.UseVisualStyleBackColor = true;
-            this.ttk.Click += new System.EventHandler(this.ttk_Click);
             // 
             // ktsdm
             // 
@@ -71,7 +60,7 @@
             // 
             this.tcs.Location = new System.Drawing.Point(44, 329);
             this.tcs.Name = "tcs";
-            this.tcs.Size = new System.Drawing.Size(122, 45);
+            this.tcs.Size = new System.Drawing.Size(143, 45);
             this.tcs.TabIndex = 3;
             this.tcs.TabStop = false;
             this.tcs.Text = "Tra cứu sách";
@@ -89,15 +78,25 @@
             this.dataGridView1.Size = new System.Drawing.Size(776, 207);
             this.dataGridView1.TabIndex = 4;
             // 
+            // ktttcn
+            // 
+            this.ktttcn.Location = new System.Drawing.Point(267, 269);
+            this.ktttcn.Name = "ktttcn";
+            this.ktttcn.Size = new System.Drawing.Size(133, 45);
+            this.ktttcn.TabIndex = 6;
+            this.ktttcn.Text = "Kiểm tra thông tin cá nhân";
+            this.ktttcn.UseVisualStyleBackColor = true;
+            this.ktttcn.Click += new System.EventHandler(this.ktttcn_Click);
+            // 
             // TrangChuSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.ktttcn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tcs);
             this.Controls.Add(this.ktsdm);
-            this.Controls.Add(this.ttk);
             this.Controls.Add(this.tcsv);
             this.IsMdiContainer = true;
             this.Name = "TrangChuSinhVien";
@@ -111,9 +110,9 @@
         #endregion
 
         private System.Windows.Forms.Label tcsv;
-        private System.Windows.Forms.Button ttk;
         private System.Windows.Forms.Button ktsdm;
         private System.Windows.Forms.Button tcs;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Button ktttcn;
     }
 }
