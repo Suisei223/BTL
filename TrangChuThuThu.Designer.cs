@@ -56,32 +56,32 @@
             this.phiếuMượnToolStripMenuItem,
             this.sinhViênToolStripMenuItem});
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 26);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(73, 24);
             this.toolStripMenuItem1.Text = "Quản lý";
             // 
             // sáchToolStripMenuItem
             // 
             this.sáchToolStripMenuItem.Name = "sáchToolStripMenuItem";
-            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.sáchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sáchToolStripMenuItem.Text = "Sách";
             // 
             // phiếuMượnToolStripMenuItem
             // 
             this.phiếuMượnToolStripMenuItem.Name = "phiếuMượnToolStripMenuItem";
-            this.phiếuMượnToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.phiếuMượnToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.phiếuMượnToolStripMenuItem.Text = "Phiếu mượn";
             this.phiếuMượnToolStripMenuItem.Click += new System.EventHandler(this.phiếuMượnToolStripMenuItem_Click);
             // 
             // sinhViênToolStripMenuItem
             // 
             this.sinhViênToolStripMenuItem.Name = "sinhViênToolStripMenuItem";
-            this.sinhViênToolStripMenuItem.Size = new System.Drawing.Size(171, 26);
+            this.sinhViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sinhViênToolStripMenuItem.Text = "Sinh viên";
             // 
             // thoátToolStripMenuItem
             // 
             this.thoátToolStripMenuItem.Name = "thoátToolStripMenuItem";
-            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(65, 26);
+            this.thoátToolStripMenuItem.Size = new System.Drawing.Size(65, 24);
             this.thoátToolStripMenuItem.Text = "Thoát ";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
