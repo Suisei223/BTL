@@ -19,11 +19,11 @@ namespace BTL
             string password = txtMatKhau.Text; 
             string role = CheckLogin(username, password);
 
-            Console.WriteLine("Role: " + role);  // Debug log
+            Console.WriteLine("Role: " + role);
 
             if (role != null)
             {
-                this.Close();
+                this.Hide();
                 if (role == "Sinh viên")
                 {
                     TrangChuSinhVien trangSinhVien = new TrangChuSinhVien();
