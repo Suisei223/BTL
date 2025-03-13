@@ -34,7 +34,6 @@
             this.phiếuMượnToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.sinhViênToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.thoátToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.ttk = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -46,7 +45,7 @@
             this.thoátToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1001, 30);
+            this.menuStrip1.Size = new System.Drawing.Size(1001, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -86,28 +85,17 @@
             this.thoátToolStripMenuItem.Text = "Thoát ";
             this.thoátToolStripMenuItem.Click += new System.EventHandler(this.thoátToolStripMenuItem_Click);
             // 
-            // ttk
-            // 
-            this.ttk.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-            this.ttk.Location = new System.Drawing.Point(24, 621);
-            this.ttk.Name = "ttk";
-            this.ttk.Size = new System.Drawing.Size(173, 41);
-            this.ttk.TabIndex = 9;
-            this.ttk.Text = "Thoát tài khoản";
-            this.ttk.UseVisualStyleBackColor = true;
-            this.ttk.Click += new System.EventHandler(this.ttk_Click);
-            // 
             // TrangChuThuThu
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1001, 694);
-            this.Controls.Add(this.ttk);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "TrangChuThuThu";
             this.Text = "TrangChuThuThu";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.TrangChuThuThu_FormClosing);
             this.Load += new System.EventHandler(this.TrangChuThuThu_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
@@ -123,6 +111,5 @@
         private System.Windows.Forms.ToolStripMenuItem phiếuMượnToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem sinhViênToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem thoátToolStripMenuItem;
-        private System.Windows.Forms.Button ttk;
     }
 }
