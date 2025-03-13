@@ -1,4 +1,4 @@
-﻿USE QuanLyMuonTraSach;
+USE QuanLyMuonTraSach;
 GO
 
 CREATE PROCEDURE sp_ThemUser
@@ -263,4 +263,115 @@ BEGIN
     DELETE FROM tblSach WHERE MaSach = @MaSach;
 END
 GO
+
+CREATE PROCEDURE sp_KiemTraDangNhap
+    @TenDangNhap NVARCHAR(50),
+    @MatKhau NVARCHAR(255),
+    @VaiTro NVARCHAR(50) OUTPUT
+AS
+BEGIN
+    DECLARE @MatKhauDB NVARCHAR(255);
+
+    -- Lấy mật khẩu và vai trò từ bảng tblUser
+    SELECT @MatKhauDB = MatKhau, @VaiTro = VaiTro
+    FROM tblUser
+    WHERE TenDangNhap = @TenDangNhap;
+
+    -- Kiểm tra mật khẩu
+    IF @MatKhauDB != @MatKhau
+    BEGIN
+        RAISERROR('Tài khoản hoặc mật khẩu không đúng!', 16, 1);
+        RETURN;
+    END
+END
+GO
+
+
+CREATE PROCEDURE sp_KiemTraTaoTaiKhoan
+    @TenDangNhap NVARCHAR(50)
+AS
+BEGIN
+    -- Kiểm tra nếu tài khoản đã tồn tại trong bảng tblUser
+    IF EXISTS (SELECT 1 FROM tblUser WHERE TenDangNhap = @TenDangNhap)
+    BEGIN
+        -- Nếu tài khoản đã tồn tại, trả về lỗi
+        RAISERROR('Tài khoản đã tồn tại!', 16, 1);
+        RETURN -1; -- Trả về -1 nếu tài khoản đã tồn tại
+    END
+    ELSE
+    BEGIN
+        -- Nếu tài khoản chưa tồn tại, trả về 0
+        RETURN 0;
+    END
+END
+GO
+
+ALTER PROCEDURE sp_KiemTraDangNhap
+    @TenDangNhap NVARCHAR(50),
+    @MatKhau NVARCHAR(255),
+    @VaiTro NVARCHAR(50) OUTPUT
+AS
+BEGIN
+    DECLARE @MatKhauDB NVARCHAR(255);
+
+    SELECT @MatKhauDB = MatKhau, @VaiTro = VaiTro
+    FROM tblUser
+    WHERE TenDangNhap = @TenDangNhap;
+
+    IF @MatKhauDB != @MatKhau
+    BEGIN
+        RAISERROR('Tài khoản hoặc mật khẩu không đúng!', 16, 1);
+        RETURN;
+    END
+
+    SELECT @VaiTro AS VaiTro;
+END
+GO
+
+CREATE PROCEDURE sp_GetAllSinhVien
+AS
+BEGIN
+    SELECT MaSV, Ten, Lop, Nganh, SDT, Email
+    FROM tblSinhVien;
+END
+GO
+
+-- Stored Procedure lấy thông tin thủ thư
+CREATE PROCEDURE sp_GetAllThuThu
+AS
+BEGIN
+    SELECT MaThuThu, HoTen, Quyen, SDT, Email
+    FROM tblThuThu;
+END
+GO
+CREATE PROCEDURE sp_GetAllSach
+AS
+BEGIN
+    SELECT MaSach, TenSach, SoLuong, TheLoai
+    FROM tblSach;
+END
+GO
+
+-- Lấy thông tin phiếu mượn
+CREATE PROCEDURE sp_GetAllPhieuMuon
+AS
+BEGIN
+    SELECT MaPhieuMuon, MaSV, TenSinhVien, NgayMuon, HanTra, MaThuThu, TenThuThu, MaSach, TenSach
+    FROM tblPhieuMuon;
+END
+GO
+
+-- Tìm kiếm phiếu mượn theo tên sinh viên hoặc tên sách
+CREATE PROCEDURE sp_TimKiemPhieuMuon
+    @TenSinhVien NVARCHAR(255) = NULL,
+    @TenSach NVARCHAR(255) = NULL
+AS
+BEGIN
+    SELECT * 
+    FROM tblPhieuMuon
+    WHERE (TenSinhVien LIKE '%' + @TenSinhVien + '%' OR @TenSinhVien IS NULL)
+      AND (TenSach LIKE '%' + @TenSach + '%' OR @TenSach IS NULL);
+END
+GO
+
 
