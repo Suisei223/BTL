@@ -120,6 +120,8 @@ namespace BTL
         private void btnClose_Click(object sender, EventArgs e)
         {
             this.Close();
+            DangNhap dn = new DangNhap();
+            dn.Show();
         }
     }
 }

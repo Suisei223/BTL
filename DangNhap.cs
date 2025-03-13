@@ -23,6 +23,7 @@ namespace BTL
 
             if (role != null)
             {
+                this.Close();
                 if (role == "Sinh viên")
                 {
                     this.Hide();    
@@ -49,9 +50,8 @@ namespace BTL
         private void dk_Click(object sender, EventArgs e)
         {
             DangKi registerForm = new DangKi();
-            this.Hide();
+            this.Close();
             registerForm.ShowDialog();
-            this.Show();
         }
         private string CheckLogin(string username, string password)
         {

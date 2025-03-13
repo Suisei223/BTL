@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Drawing;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -24,17 +25,24 @@ namespace BTL
             string tenSinhVien = txtTenSinhVien.Text.Trim();
             string tenSach = txtTenSach.Text.Trim();
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("sp_TimKiemPhieuMuon", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
-                cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_TimKiemPhieuMuon", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
+                    cmd.Parameters.AddWithValue("@TenSach", tenSach);
 
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView1.DataSource = dt;
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (Exception ex)
+            {
+                errorProvider1.SetError(ktcpm, "Lỗi khi tìm kiếm phiếu mượn: " + ex.Message);
             }
         }
 
@@ -48,71 +56,125 @@ namespace BTL
 
         private void LoadPhieuMuonData()
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("sp_GetAllPhieuMuon", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                SqlDataAdapter adapter = new SqlDataAdapter(cmd);
-                DataTable dt = new DataTable();
-                adapter.Fill(dt);
-                dataGridView1.DataSource = dt;
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_GetAllPhieuMuon", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+
+                    SqlDataAdapter adapter = new SqlDataAdapter(cmd);
+                    DataTable dt = new DataTable();
+                    adapter.Fill(dt);
+                    dataGridView1.DataSource = dt;
+                }
+            }
+            catch (SqlException ex)
+            {
+                errorProvider1.SetError(dataGridView1, "Lỗi khi tải dữ liệu phiếu mượn: " + ex.Message);
             }
         }
 
         private void EditPhieuMuon_Load(object sender, EventArgs e)
         {
             LoadPhieuMuonData();
+            x.Enabled = false;
         }
 
         private void n_Click(object sender, EventArgs e)
         {
-            int maPhieuMuon = Convert.ToInt32(txtMaPhieuMuon.Text);
-            int maSV = Convert.ToInt32(txtMaSinhVien.Text);
-            string tenSinhVien = txtTenSinhVien.Text;
-            string tenThuThu = txtTenThuThu.Text;
-            string tenSach = txtTenSach.Text;
+            int maPhieuMuon;
+            if (!int.TryParse(txtMaPhieuMuon.Text, out maPhieuMuon))
+            {
+                errorProvider1.SetError(txtMaPhieuMuon, "Mã phiếu mượn không hợp lệ.");
+                return;
+            }
+
+            string tenSinhVien = txtTenSinhVien.Text.Trim();
+            string tenSach = txtTenSach.Text.Trim();
             DateTime ngayMuon = dateTimePickerNgayMuon.Value;
             DateTime hanTra = dateTimePickerHanTra.Value;
 
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("sp_ThemPhieuMuon", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
-                cmd.Parameters.AddWithValue("@MaSV", maSV);
-                cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
-                cmd.Parameters.AddWithValue("@NgayMuon", ngayMuon);
-                cmd.Parameters.AddWithValue("@HanTra", hanTra);
-                cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text));
-                cmd.Parameters.AddWithValue("@TenThuThu", tenThuThu);
-                cmd.Parameters.AddWithValue("@MaSach", Convert.ToInt32(txtMaSach.Text));
-                cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    // Nếu nút là "Lưu", thực hiện cập nhật
+                    if (n.Text == "Lưu")
+                    {
+                        SqlCommand cmd = new SqlCommand("sp_SuaPhieuMuon", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
+                        cmd.Parameters.AddWithValue("@MaSV", Convert.ToInt32(txtMaSinhVien.Text)); // MaSinhVien
+                        cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
+                        cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                        cmd.Parameters.AddWithValue("@NgayMuon", ngayMuon);
+                        cmd.Parameters.AddWithValue("@HanTra", hanTra);
+                        cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text)); // MaThuThu
+                        cmd.Parameters.AddWithValue("@TenThuThu", txtTenThuThu.Text);
+                        cmd.Parameters.AddWithValue("@MaSach", txtMaSach.Text);
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
+                        LoadPhieuMuonData();
+                        n.Text = "Nhập";  
+                        x.Enabled = false;
+                        ClearFormFields();
+                    }
+                    else  
+                    {
+                        SqlCommand cmd = new SqlCommand("sp_ThemPhieuMuon", conn);
+                        cmd.CommandType = CommandType.StoredProcedure;
+                        cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
+                        cmd.Parameters.AddWithValue("@MaSV", Convert.ToInt32(txtMaSinhVien.Text)); // MaSinhVien
+                        cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
+                        cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                        cmd.Parameters.AddWithValue("@NgayMuon", ngayMuon);
+                        cmd.Parameters.AddWithValue("@HanTra", hanTra);
+                        cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text)); // MaThuThu
+                        cmd.Parameters.AddWithValue("@TenThuThu", txtTenThuThu.Text);
+                        cmd.Parameters.AddWithValue("@MaSach", txtMaSach.Text);
+
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+
+                        LoadPhieuMuonData();
+                    }
+                }
             }
-            LoadPhieuMuonData();
-            n.Text = "Nhập";
-            x.Enabled = false; 
+            catch (SqlException ex)
+            {
+                errorProvider1.SetError(n, "Lỗi khi thêm/sửa phiếu mượn: " + ex.Message);
+            }
         }
 
         private void x_Click(object sender, EventArgs e)
         {
-            int maPhieuMuon = Convert.ToInt32(txtMaPhieuMuon.Text);
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            int maPhieuMuon;
+            if (!int.TryParse(txtMaPhieuMuon.Text, out maPhieuMuon))
             {
-                SqlCommand cmd = new SqlCommand("sp_XoaPhieuMuon", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
+                errorProvider1.SetError(txtMaPhieuMuon, "Mã phiếu mượn không hợp lệ.");
+                return;
+            }
 
-                conn.Open();
-                cmd.ExecuteNonQuery(); 
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_XoaPhieuMuon", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
 
-                LoadPhieuMuonData();
-
-                n.Text = "Nhập"; 
-                x.Enabled = false; 
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    LoadPhieuMuonData();
+                    n.Text = "Nhập";
+                    x.Enabled = false;
+                }
+            }
+            catch (SqlException ex)
+            {
+                errorProvider1.SetError(x, "Lỗi khi xóa phiếu mượn: " + ex.Message);
             }
         }
 
@@ -130,10 +192,22 @@ namespace BTL
                 txtTenSach.Text = row.Cells["TenSach"].Value.ToString();
                 dateTimePickerNgayMuon.Value = Convert.ToDateTime(row.Cells["NgayMuon"].Value);
                 dateTimePickerHanTra.Value = Convert.ToDateTime(row.Cells["HanTra"].Value);
-
+                txtMaSach.Text = row.Cells["MaSach"].Value.ToString();
                 n.Text = "Lưu";
-                x.Enabled = true; 
+                x.Enabled = true;
             }
+        }
+        private void ClearFormFields()
+        {
+            txtMaPhieuMuon.Clear();
+            txtMaSinhVien.Clear();
+            txtTenSinhVien.Clear();
+            txtMaThuThu.Clear();
+            txtTenThuThu.Clear();
+            txtTenSach.Clear();
+            txtMaSach.Clear();
+            dateTimePickerNgayMuon.Value = DateTime.Now;  // Set to current date or default date
+            dateTimePickerHanTra.Value = DateTime.Now;
         }
     }
 }

@@ -19,13 +19,6 @@ namespace BTL
             InitializeComponent();
         }
 
-        private void ttk_Click(object sender, EventArgs e)
-        {
-            DangNhap dn = new DangNhap();
-            dn.Show();
-            this.Close();
-        }
-
         private void TrangChuThuThu_Load(object sender, EventArgs e)
         {
 
@@ -94,6 +87,11 @@ namespace BTL
         private void thoátToolStripMenuItem_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void TrangChuThuThu_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            Application.Exit();
         }
     }
 }
