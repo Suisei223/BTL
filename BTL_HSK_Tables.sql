@@ -1,6 +1,5 @@
-﻿CREATE DATABASE QuanLyMuonTraSach;
+CREATE DATABASE QuanLyMuonTraSach;
 GO
-
 USE QuanLyMuonTraSach;
 GO
 
@@ -19,30 +18,31 @@ CREATE TABLE tblTheLoai (
 );
 GO
 
--- Tạo bảng tblSinhVien (Thông tin sinh viên)
+-- Tạo lại bảng tblSinhVien
 CREATE TABLE tblSinhVien (
-    MaSV INT PRIMARY KEY,           -- Mã sinh viên
-    Ten NVARCHAR(255),              -- Tên sinh viên
-    Lop NVARCHAR(50),               -- Lớp của sinh viên
-    Nganh NVARCHAR(100),            -- Ngành học
-    SDT NVARCHAR(15),               -- Số điện thoại
-    Email NVARCHAR(255),            -- Email
-    TenDangNhap NVARCHAR(255) UNIQUE, -- Tên đăng nhập (liên kết với tblUser)
+    MaSV INT IDENTITY(1,1) PRIMARY KEY,  -- Mã sinh viên tự động tăng
+    Ten NVARCHAR(255),                   -- Tên sinh viên
+    Lop NVARCHAR(50),                    -- Lớp của sinh viên
+    Nganh NVARCHAR(100),                 -- Ngành học
+    SDT NVARCHAR(15),                    -- Số điện thoại
+    Email NVARCHAR(255),                 -- Email
+    TenDangNhap NVARCHAR(255) UNIQUE,    -- Tên đăng nhập (liên kết với tblUser)
     FOREIGN KEY (TenDangNhap) REFERENCES tblUser(TenDangNhap)
 );
 GO
 
--- Tạo bảng tblThuThu (Thông tin thủ thư)
+-- Tạo lại bảng tblThuThu
 CREATE TABLE tblThuThu (
-    MaThuThu INT PRIMARY KEY,       -- Mã thủ thư
-    HoTen NVARCHAR(255),            -- Họ tên thủ thư
-    Quyen NVARCHAR(50),             -- Quyền của thủ thư
-    SDT NVARCHAR(15),               -- Số điện thoại
-    Email NVARCHAR(255),            -- Email
-    TenDangNhap NVARCHAR(255) UNIQUE, -- Tên đăng nhập (liên kết với tblUser)
+    MaThuThu INT IDENTITY(1,1) PRIMARY KEY,  -- Mã thủ thư tự động tăng
+    HoTen NVARCHAR(255),                     -- Họ tên thủ thư
+    Quyen NVARCHAR(50),                      -- Quyền của thủ thư
+    SDT NVARCHAR(15),                        -- Số điện thoại
+    Email NVARCHAR(255),                     -- Email
+    TenDangNhap NVARCHAR(255) UNIQUE,        -- Tên đăng nhập (liên kết với tblUser)
     FOREIGN KEY (TenDangNhap) REFERENCES tblUser(TenDangNhap)
 );
 GO
+
 
 -- Tạo bảng tblSach (Thông tin sách)
 CREATE TABLE tblSach (
