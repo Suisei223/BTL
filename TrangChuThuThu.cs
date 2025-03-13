@@ -31,7 +31,7 @@ namespace BTL
 
         }
 
-        private void LoadData(string procName)
+        /*private void LoadData(string procName)
         {
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
@@ -81,27 +81,7 @@ namespace BTL
                     dataGridView1.Columns["TenSach"].HeaderText = "Tên Sách";
                 }
             }
-        }
-
-        private void ttsv_Click(object sender, EventArgs e)
-        {
-            LoadData("sp_GetAllSinhVien");
-        }
-
-        private void tttt_Click(object sender, EventArgs e)
-        {
-            LoadData("sp_GetAllThuThu");
-        }
-
-        private void ttpm_Click(object sender, EventArgs e)
-        {
-            LoadData("sp_GetAllSach");
-        }
-
-        private void cssv_Click(object sender, EventArgs e)
-        {
-            LoadData("sp_GetAllPhieuMuon");
-        }
+        }*/
 
         private void phiếuMượnToolStripMenuItem_Click(object sender, EventArgs e)
         {
