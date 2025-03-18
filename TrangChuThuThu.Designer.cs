@@ -45,7 +45,7 @@
             this.thoátToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(1001, 28);
+            this.menuStrip1.Size = new System.Drawing.Size(1091, 28);
             this.menuStrip1.TabIndex = 11;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -64,6 +64,7 @@
             this.sáchToolStripMenuItem.Name = "sáchToolStripMenuItem";
             this.sáchToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sáchToolStripMenuItem.Text = "Sách";
+            this.sáchToolStripMenuItem.Click += new System.EventHandler(this.sáchToolStripMenuItem_Click);
             // 
             // phiếuMượnToolStripMenuItem
             // 
@@ -89,7 +90,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1001, 694);
+            this.ClientSize = new System.Drawing.Size(1091, 775);
             this.Controls.Add(this.menuStrip1);
             this.IsMdiContainer = true;
             this.MainMenuStrip = this.menuStrip1;

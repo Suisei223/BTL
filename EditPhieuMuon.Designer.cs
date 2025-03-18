@@ -53,6 +53,8 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
+            this.btnIn = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -77,9 +79,8 @@
             // 
             // label4
             // 
-            this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(565, 135);
+            this.label4.Location = new System.Drawing.Point(457, 135);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(81, 16);
             this.label4.TabIndex = 3;
@@ -96,8 +97,7 @@
             // 
             // n
             // 
-            this.n.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.n.Location = new System.Drawing.Point(138, 368);
+            this.n.Location = new System.Drawing.Point(25, 364);
             this.n.Name = "n";
             this.n.Size = new System.Drawing.Size(118, 47);
             this.n.TabIndex = 6;
@@ -107,8 +107,7 @@
             // 
             // txtMaSinhVien
             // 
-            this.txtMaSinhVien.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaSinhVien.Location = new System.Drawing.Point(673, 129);
+            this.txtMaSinhVien.Location = new System.Drawing.Point(565, 129);
             this.txtMaSinhVien.Name = "txtMaSinhVien";
             this.txtMaSinhVien.Size = new System.Drawing.Size(222, 22);
             this.txtMaSinhVien.TabIndex = 7;
@@ -136,8 +135,7 @@
             // 
             // ktcpm
             // 
-            this.ktcpm.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.ktcpm.Location = new System.Drawing.Point(712, 368);
+            this.ktcpm.Location = new System.Drawing.Point(599, 364);
             this.ktcpm.Name = "ktcpm";
             this.ktcpm.Size = new System.Drawing.Size(120, 47);
             this.ktcpm.TabIndex = 12;
@@ -147,8 +145,7 @@
             // 
             // x
             // 
-            this.x.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.x.Location = new System.Drawing.Point(530, 368);
+            this.x.Location = new System.Drawing.Point(417, 364);
             this.x.Name = "x";
             this.x.Size = new System.Drawing.Size(112, 47);
             this.x.TabIndex = 13;
@@ -158,8 +155,7 @@
             // 
             // s
             // 
-            this.s.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.s.Location = new System.Drawing.Point(341, 368);
+            this.s.Location = new System.Drawing.Point(228, 364);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(114, 47);
             this.s.TabIndex = 14;
@@ -169,31 +165,28 @@
             // 
             // dataGridView1
             // 
-            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.dataGridView1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left)));
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(12, 443);
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.RowHeadersWidth = 51;
             this.dataGridView1.RowTemplate.Height = 24;
-            this.dataGridView1.Size = new System.Drawing.Size(963, 320);
+            this.dataGridView1.Size = new System.Drawing.Size(892, 320);
             this.dataGridView1.TabIndex = 15;
             this.dataGridView1.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
             // txtMaThuThu
             // 
-            this.txtMaThuThu.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaThuThu.Location = new System.Drawing.Point(673, 187);
+            this.txtMaThuThu.Location = new System.Drawing.Point(565, 187);
             this.txtMaThuThu.Name = "txtMaThuThu";
             this.txtMaThuThu.Size = new System.Drawing.Size(222, 22);
             this.txtMaThuThu.TabIndex = 17;
             // 
             // label1
             // 
-            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(565, 193);
+            this.label1.Location = new System.Drawing.Point(457, 193);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(66, 16);
             this.label1.TabIndex = 16;
@@ -201,17 +194,15 @@
             // 
             // txtMaSach
             // 
-            this.txtMaSach.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.txtMaSach.Location = new System.Drawing.Point(673, 245);
+            this.txtMaSach.Location = new System.Drawing.Point(565, 245);
             this.txtMaSach.Name = "txtMaSach";
             this.txtMaSach.Size = new System.Drawing.Size(222, 22);
             this.txtMaSach.TabIndex = 21;
             // 
             // label2
             // 
-            this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(565, 251);
+            this.label2.Location = new System.Drawing.Point(457, 251);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(58, 16);
             this.label2.TabIndex = 20;
@@ -242,8 +233,7 @@
             // 
             // dateTimePickerHanTra
             // 
-            this.dateTimePickerHanTra.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.dateTimePickerHanTra.Location = new System.Drawing.Point(673, 302);
+            this.dateTimePickerHanTra.Location = new System.Drawing.Point(565, 302);
             this.dateTimePickerHanTra.Name = "dateTimePickerHanTra";
             this.dateTimePickerHanTra.Size = new System.Drawing.Size(222, 22);
             this.dateTimePickerHanTra.TabIndex = 23;
@@ -259,9 +249,8 @@
             // 
             // label8
             // 
-            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(565, 308);
+            this.label8.Location = new System.Drawing.Point(457, 308);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(50, 16);
             this.label8.TabIndex = 25;
@@ -271,11 +260,36 @@
             // 
             this.errorProvider1.ContainerControl = this;
             // 
+            // crystalReportViewer1
+            // 
+            this.crystalReportViewer1.ActiveViewIndex = -1;
+            this.crystalReportViewer1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.crystalReportViewer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.crystalReportViewer1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.crystalReportViewer1.Location = new System.Drawing.Point(906, 69);
+            this.crystalReportViewer1.Name = "crystalReportViewer1";
+            this.crystalReportViewer1.Size = new System.Drawing.Size(634, 694);
+            this.crystalReportViewer1.TabIndex = 26;
+            this.crystalReportViewer1.Load += new System.EventHandler(this.crystalReportViewer1_Load);
+            // 
+            // btnIn
+            // 
+            this.btnIn.Location = new System.Drawing.Point(749, 364);
+            this.btnIn.Name = "btnIn";
+            this.btnIn.Size = new System.Drawing.Size(110, 47);
+            this.btnIn.TabIndex = 28;
+            this.btnIn.Text = "In";
+            this.btnIn.UseVisualStyleBackColor = true;
+            this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
+            // 
             // EditPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(987, 775);
+            this.ClientSize = new System.Drawing.Size(1543, 775);
+            this.Controls.Add(this.btnIn);
+            this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.dateTimePickerHanTra);
@@ -334,5 +348,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button btnIn;
+        private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
     }
 }

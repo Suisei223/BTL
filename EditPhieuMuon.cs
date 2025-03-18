@@ -1,9 +1,12 @@
-﻿using System;
+﻿using CrystalDecisions.CrystalReports.Engine;
+using CrystalDecisions.Shared;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Data.SqlClient;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -22,8 +25,22 @@ namespace BTL
 
         private void ktcpm_Click(object sender, EventArgs e)
         {
+            string maPhieuMuon = txtMaPhieuMuon.Text.Trim();
             string tenSinhVien = txtTenSinhVien.Text.Trim();
+            string tenThuThu = txtTenThuThu.Text.Trim();
             string tenSach = txtTenSach.Text.Trim();
+            string maSinhVien = txtMaSinhVien.Text.Trim();
+            string maThuThu = txtMaThuThu.Text.Trim();
+            string maSach = txtMaSach.Text.Trim();
+            DateTime? ngayMuon = dateTimePickerNgayMuon.Checked ? (DateTime?)dateTimePickerNgayMuon.Value : null;
+            DateTime? hanTra = dateTimePickerHanTra.Checked ? (DateTime?)dateTimePickerHanTra.Value : null;
+
+            if (string.IsNullOrEmpty(maPhieuMuon) && string.IsNullOrEmpty(tenSinhVien) && string.IsNullOrEmpty(tenThuThu) && string.IsNullOrEmpty(tenSach)
+                && string.IsNullOrEmpty(maSinhVien) && string.IsNullOrEmpty(maThuThu) && string.IsNullOrEmpty(maSach) && !ngayMuon.HasValue && !hanTra.HasValue)
+            {
+                errorProvider1.SetError(ktcpm, "Vui lòng nhập ít nhất một trường: Mã Phiếu Mượn, Tên Sinh Viên, Tên Thủ Thư, Tên Sách, Mã Sinh Viên, Mã Thủ Thư, Mã Sách, Ngày Mượn hoặc Hạn Trả.");
+                return;
+            }
 
             try
             {
@@ -31,8 +48,16 @@ namespace BTL
                 {
                     SqlCommand cmd = new SqlCommand("sp_TimKiemPhieuMuon", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
-                    cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
-                    cmd.Parameters.AddWithValue("@TenSach", tenSach);
+
+                    cmd.Parameters.AddWithValue("@MaPhieuMuon", string.IsNullOrEmpty(maPhieuMuon) ? DBNull.Value : (object)maPhieuMuon);
+                    cmd.Parameters.AddWithValue("@TenSinhVien", string.IsNullOrEmpty(tenSinhVien) ? DBNull.Value : (object)tenSinhVien);
+                    cmd.Parameters.AddWithValue("@TenThuThu", string.IsNullOrEmpty(tenThuThu) ? DBNull.Value : (object)tenThuThu);
+                    cmd.Parameters.AddWithValue("@TenSach", string.IsNullOrEmpty(tenSach) ? DBNull.Value : (object)tenSach);
+                    cmd.Parameters.AddWithValue("@MaSinhVien", string.IsNullOrEmpty(maSinhVien) ? DBNull.Value : (object)maSinhVien);
+                    cmd.Parameters.AddWithValue("@MaThuThu", string.IsNullOrEmpty(maThuThu) ? DBNull.Value : (object)maThuThu);
+                    cmd.Parameters.AddWithValue("@MaSach", string.IsNullOrEmpty(maSach) ? DBNull.Value : (object)maSach);
+                    cmd.Parameters.AddWithValue("@NgayMuon", !ngayMuon.HasValue ? DBNull.Value : (object)ngayMuon);
+                    cmd.Parameters.AddWithValue("@HanTra", !hanTra.HasValue ? DBNull.Value : (object)hanTra);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -208,6 +233,50 @@ namespace BTL
             txtMaSach.Clear();
             dateTimePickerNgayMuon.Value = DateTime.Now;  // Set to current date or default date
             dateTimePickerHanTra.Value = DateTime.Now;
+        }
+
+        private void btnIn_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.SelectedRows.Count == 0)
+            {
+                errorProvider1.SetError(btnIn, "Vui lòng chọn một phiếu mượn trước khi in.");
+                return;
+            }
+
+            try
+            {
+                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
+                string maSV = selectedRow.Cells["MaSV"].Value.ToString();
+
+                ReportDocument rptDoc = new ReportDocument();
+                string reportPath = "D:\\Lập trình hướng sự kiện\\BTL-Truong\\BTL\\CrystalReport1.rpt";
+                rptDoc.Load(reportPath);
+
+                ParameterDiscreteValue discreteValue = new ParameterDiscreteValue();
+                discreteValue.Value = maSV;
+
+                ParameterFieldDefinitions parameterFields = rptDoc.DataDefinition.ParameterFields;
+                ParameterFieldDefinition parameterField = parameterFields["MaSV"];
+
+                ParameterValues paramValues = new ParameterValues();
+                paramValues.Add(discreteValue);
+                parameterField.ApplyCurrentValues(paramValues);
+
+                rptDoc.VerifyDatabase();
+
+                crystalReportViewer1.ReportSource = rptDoc;
+                crystalReportViewer1.RefreshReport();
+            }
+            catch (Exception ex)
+            {
+                errorProvider1.SetError(btnIn, "Lỗi tạo báo cáo.");
+                //MessageBox.Show("Lỗi khi in báo cáo: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void crystalReportViewer1_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
