@@ -25,6 +25,7 @@ namespace BTL
 
         private void ktcpm_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             string maPhieuMuon = txtMaPhieuMuon.Text.Trim();
             string tenSinhVien = txtTenSinhVien.Text.Trim();
             string tenThuThu = txtTenThuThu.Text.Trim();
@@ -49,15 +50,15 @@ namespace BTL
                     SqlCommand cmd = new SqlCommand("sp_TimKiemPhieuMuon", conn);
                     cmd.CommandType = CommandType.StoredProcedure;
 
-                    cmd.Parameters.AddWithValue("@MaPhieuMuon", string.IsNullOrEmpty(maPhieuMuon) ? DBNull.Value : (object)maPhieuMuon);
-                    cmd.Parameters.AddWithValue("@TenSinhVien", string.IsNullOrEmpty(tenSinhVien) ? DBNull.Value : (object)tenSinhVien);
-                    cmd.Parameters.AddWithValue("@TenThuThu", string.IsNullOrEmpty(tenThuThu) ? DBNull.Value : (object)tenThuThu);
-                    cmd.Parameters.AddWithValue("@TenSach", string.IsNullOrEmpty(tenSach) ? DBNull.Value : (object)tenSach);
-                    cmd.Parameters.AddWithValue("@MaSinhVien", string.IsNullOrEmpty(maSinhVien) ? DBNull.Value : (object)maSinhVien);
-                    cmd.Parameters.AddWithValue("@MaThuThu", string.IsNullOrEmpty(maThuThu) ? DBNull.Value : (object)maThuThu);
-                    cmd.Parameters.AddWithValue("@MaSach", string.IsNullOrEmpty(maSach) ? DBNull.Value : (object)maSach);
-                    cmd.Parameters.AddWithValue("@NgayMuon", !ngayMuon.HasValue ? DBNull.Value : (object)ngayMuon);
-                    cmd.Parameters.AddWithValue("@HanTra", !hanTra.HasValue ? DBNull.Value : (object)hanTra);
+                    cmd.Parameters.AddWithValue("@MaPhieuMuon", string.IsNullOrEmpty(maPhieuMuon) ? (object)DBNull.Value : Convert.ToInt32(maPhieuMuon));
+                    cmd.Parameters.AddWithValue("@MaSV", string.IsNullOrEmpty(maSinhVien) ? (object)DBNull.Value : Convert.ToInt32(maSinhVien));
+                    cmd.Parameters.AddWithValue("@TenSinhVien", string.IsNullOrEmpty(tenSinhVien) ? (object)DBNull.Value : (object)tenSinhVien);
+                    cmd.Parameters.AddWithValue("@MaThuThu", string.IsNullOrEmpty(maThuThu) ? (object)DBNull.Value : Convert.ToInt32(maThuThu));
+                    cmd.Parameters.AddWithValue("@TenThuThu", string.IsNullOrEmpty(tenThuThu) ? (object)DBNull.Value : (object)tenThuThu);
+                    cmd.Parameters.AddWithValue("@MaSach", string.IsNullOrEmpty(maSach) ? (object)DBNull.Value : Convert.ToInt32(maSach));
+                    cmd.Parameters.AddWithValue("@TenSach", string.IsNullOrEmpty(tenSach) ? (object)DBNull.Value : (object)tenSach);
+                    cmd.Parameters.AddWithValue("@NgayMuon", !ngayMuon.HasValue ? (object)DBNull.Value : ngayMuon.Value);
+                    cmd.Parameters.AddWithValue("@HanTra", !hanTra.HasValue ? (object)DBNull.Value : hanTra.Value);
 
                     SqlDataAdapter adapter = new SqlDataAdapter(cmd);
                     DataTable dt = new DataTable();
@@ -108,15 +109,6 @@ namespace BTL
 
         private void n_Click(object sender, EventArgs e)
         {
-            int maPhieuMuon;
-            if (!int.TryParse(txtMaPhieuMuon.Text, out maPhieuMuon))
-            {
-                errorProvider1.SetError(txtMaPhieuMuon, "Mã phiếu mượn không hợp lệ.");
-                return;
-            }
-
-            string tenSinhVien = txtTenSinhVien.Text.Trim();
-            string tenSach = txtTenSach.Text.Trim();
             DateTime ngayMuon = dateTimePickerNgayMuon.Value;
             DateTime hanTra = dateTimePickerHanTra.Value;
 
@@ -124,23 +116,19 @@ namespace BTL
             {
                 using (SqlConnection conn = new SqlConnection(connectionString))
                 {
-                    // Nếu nút là "Lưu", thực hiện cập nhật
                     if (n.Text == "Lưu")
                     {
                         SqlCommand cmd = new SqlCommand("sp_SuaPhieuMuon", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
-                        cmd.Parameters.AddWithValue("@MaSV", Convert.ToInt32(txtMaSinhVien.Text)); // MaSinhVien
-                        cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
-                        cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                        cmd.Parameters.AddWithValue("@MaPhieuMuon", Convert.ToInt32(txtMaPhieuMuon.Text));
+                        cmd.Parameters.AddWithValue("@MaSV", Convert.ToInt32(txtMaSinhVien.Text));
                         cmd.Parameters.AddWithValue("@NgayMuon", ngayMuon);
                         cmd.Parameters.AddWithValue("@HanTra", hanTra);
-                        cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text)); // MaThuThu
-                        cmd.Parameters.AddWithValue("@TenThuThu", txtTenThuThu.Text);
-                        cmd.Parameters.AddWithValue("@MaSach", txtMaSach.Text);
+                        cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text));
+                        cmd.Parameters.AddWithValue("@MaSach", Convert.ToInt32(txtMaSach.Text));
                         conn.Open();
                         cmd.ExecuteNonQuery();
-
+                        errorProvider1.Clear();
                         LoadPhieuMuonData();
                         n.Text = "Nhập";  
                         x.Enabled = false;
@@ -150,19 +138,15 @@ namespace BTL
                     {
                         SqlCommand cmd = new SqlCommand("sp_ThemPhieuMuon", conn);
                         cmd.CommandType = CommandType.StoredProcedure;
-                        cmd.Parameters.AddWithValue("@MaPhieuMuon", maPhieuMuon);
-                        cmd.Parameters.AddWithValue("@MaSV", Convert.ToInt32(txtMaSinhVien.Text)); // MaSinhVien
-                        cmd.Parameters.AddWithValue("@TenSinhVien", tenSinhVien);
-                        cmd.Parameters.AddWithValue("@TenSach", tenSach);
+                        cmd.Parameters.AddWithValue("@MaSV", Convert.ToInt32(txtMaSinhVien.Text));
                         cmd.Parameters.AddWithValue("@NgayMuon", ngayMuon);
                         cmd.Parameters.AddWithValue("@HanTra", hanTra);
-                        cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text)); // MaThuThu
-                        cmd.Parameters.AddWithValue("@TenThuThu", txtTenThuThu.Text);
-                        cmd.Parameters.AddWithValue("@MaSach", txtMaSach.Text);
+                        cmd.Parameters.AddWithValue("@MaThuThu", Convert.ToInt32(txtMaThuThu.Text));
+                        cmd.Parameters.AddWithValue("@MaSach", Convert.ToInt32(txtMaSach.Text));
 
                         conn.Open();
                         cmd.ExecuteNonQuery();
-
+                        errorProvider1.Clear();
                         LoadPhieuMuonData();
                     }
                 }
@@ -175,6 +159,7 @@ namespace BTL
 
         private void x_Click(object sender, EventArgs e)
         {
+            errorProvider1.Clear();
             int maPhieuMuon;
             if (!int.TryParse(txtMaPhieuMuon.Text, out maPhieuMuon))
             {
@@ -231,7 +216,7 @@ namespace BTL
             txtTenThuThu.Clear();
             txtTenSach.Clear();
             txtMaSach.Clear();
-            dateTimePickerNgayMuon.Value = DateTime.Now;  // Set to current date or default date
+            dateTimePickerNgayMuon.Value = DateTime.Now;  
             dateTimePickerHanTra.Value = DateTime.Now;
         }
 
@@ -245,22 +230,10 @@ namespace BTL
 
             try
             {
-                DataGridViewRow selectedRow = dataGridView1.SelectedRows[0];
-                string maSV = selectedRow.Cells["MaSV"].Value.ToString();
-
+                int maSV = Convert.ToInt32(dataGridView1.CurrentRow.Cells["MaSV"].Value);
                 ReportDocument rptDoc = new ReportDocument();
-                string reportPath = "D:\\Lập trình hướng sự kiện\\BTL-Truong\\BTL\\CrystalReport1.rpt";
-                rptDoc.Load(reportPath);
-
-                ParameterDiscreteValue discreteValue = new ParameterDiscreteValue();
-                discreteValue.Value = maSV;
-
-                ParameterFieldDefinitions parameterFields = rptDoc.DataDefinition.ParameterFields;
-                ParameterFieldDefinition parameterField = parameterFields["MaSV"];
-
-                ParameterValues paramValues = new ParameterValues();
-                paramValues.Add(discreteValue);
-                parameterField.ApplyCurrentValues(paramValues);
+                rptDoc.Load("D:\\Lập trình hướng sự kiện\\BTL-Truong\\BTL\\CrystalReport1.rpt");
+                rptDoc.SetParameterValue("MaSV", maSV);
 
                 rptDoc.VerifyDatabase();
 
@@ -269,8 +242,7 @@ namespace BTL
             }
             catch (Exception ex)
             {
-                errorProvider1.SetError(btnIn, "Lỗi tạo báo cáo.");
-                //MessageBox.Show("Lỗi khi in báo cáo: " + ex.Message, "Lỗi", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                errorProvider1.SetError(btnIn, "Lỗi tạo báo cáo." + ex.Message);
             }
         }
 
@@ -278,5 +250,36 @@ namespace BTL
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            if (n.Text == "Lưu")
+            {
+                ResetForm();
+            }
+            else
+            {
+                this.Close();
+            }
+        }
+
+        private void ResetForm()
+        {
+            errorProvider1.Clear();  
+            txtMaPhieuMuon.Clear();
+            txtMaSinhVien.Clear();
+            txtTenSinhVien.Clear();
+            txtMaThuThu.Clear();
+            txtTenThuThu.Clear();
+            txtTenSach.Clear();
+            txtMaSach.Clear();
+            dateTimePickerNgayMuon.Value = DateTime.Now;
+            dateTimePickerHanTra.Value = DateTime.Now;
+
+            n.Text = "Nhập"; 
+            x.Enabled = false; 
+            LoadPhieuMuonData();
+        }
+
     }
 }

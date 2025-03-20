@@ -13,7 +13,7 @@ namespace BTL
 {
     public partial class DangKi : Form
     {
-        string connectionString = "Server= DESKTOP-PA21PBT\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
+        string connectionString = "Server= LAPTOP-29QKNBEH\\SQLEXPRESS; Database= QuanLyMuonTraSach; Integrated Security=True;";
         
         public DangKi()
         {
@@ -47,6 +47,17 @@ namespace BTL
                 errorProvider1.SetError(txtTaiKhoan, "Tài khoản đã tồn tại!");
                 return;
             }
+            if (!rdoSinhVien.Checked && !rdoThuThu.Checked)
+            {
+                errorProvider1.SetError(rdoSinhVien, "Vui lòng chọn vai trò!");
+                errorProvider1.SetError(rdoThuThu, "Vui lòng chọn vai trò!");
+                return;
+            }
+            else
+            {
+                errorProvider1.Clear(); 
+                errorProvider1.Clear();
+            }
 
             string matKhauText = matKhau;
 
@@ -78,21 +89,29 @@ namespace BTL
 
         private bool CheckIfAccountExists(string username)
         {
-            using (SqlConnection conn = new SqlConnection(connectionString))
+            try
             {
-                SqlCommand cmd = new SqlCommand("sp_KiemTraTaoTaiKhoan", conn);
-                cmd.CommandType = CommandType.StoredProcedure;
-                cmd.Parameters.AddWithValue("@TenDangNhap", username);
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    SqlCommand cmd = new SqlCommand("sp_KiemTraTaoTaiKhoan", conn);
+                    cmd.CommandType = CommandType.StoredProcedure;
+                    cmd.Parameters.AddWithValue("@TenDangNhap", username);
 
-                SqlParameter returnValue = new SqlParameter();
-                returnValue.Direction = ParameterDirection.ReturnValue;
-                cmd.Parameters.Add(returnValue);
+                    SqlParameter returnValue = new SqlParameter();
+                    returnValue.Direction = ParameterDirection.ReturnValue;
+                    cmd.Parameters.Add(returnValue);
 
-                conn.Open();
-                cmd.ExecuteNonQuery();
-                conn.Close();
+                    conn.Open();
+                    cmd.ExecuteNonQuery();
+                    conn.Close();
 
-                return (int)returnValue.Value == -1; 
+                    return (int)returnValue.Value == -1;
+                }
+            }
+            catch (SqlException ex)
+            {
+                errorProvider1.SetError(txtTaiKhoan, ex.Message); 
+                return true;
             }
         }
 

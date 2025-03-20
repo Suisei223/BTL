@@ -28,12 +28,17 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.tcsv = new System.Windows.Forms.Label();
             this.ktsdm = new System.Windows.Forms.Button();
             this.tcs = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.ktttcn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
+            this.button2 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // tcsv
@@ -55,6 +60,7 @@
             this.ktsdm.TabStop = false;
             this.ktsdm.Text = "Kiểm tra sách đã mượn";
             this.ktsdm.UseVisualStyleBackColor = true;
+            this.ktsdm.Click += new System.EventHandler(this.ktsdm_Click);
             // 
             // tcs
             // 
@@ -65,6 +71,7 @@
             this.tcs.TabStop = false;
             this.tcs.Text = "Tra cứu sách";
             this.tcs.UseVisualStyleBackColor = true;
+            this.tcs.Click += new System.EventHandler(this.tcs_Click);
             // 
             // dataGridView1
             // 
@@ -88,11 +95,37 @@
             this.ktttcn.UseVisualStyleBackColor = true;
             this.ktttcn.Click += new System.EventHandler(this.ktttcn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(267, 329);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(133, 45);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "In danh sách";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // errorProvider1
+            // 
+            this.errorProvider1.ContainerControl = this;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(493, 269);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(132, 45);
+            this.button2.TabIndex = 9;
+            this.button2.Text = "Thoát";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // TrangChuSinhVien
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ktttcn);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.tcs);
@@ -102,6 +135,7 @@
             this.Name = "TrangChuSinhVien";
             this.Text = "TrangChuSinhVien";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -114,5 +148,8 @@
         private System.Windows.Forms.Button tcs;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Button ktttcn;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
+        private System.Windows.Forms.Button button2;
     }
 }

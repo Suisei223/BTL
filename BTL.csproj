@@ -71,12 +71,6 @@
     <Compile Include="DangKi.Designer.cs">
       <DependentUpon>DangKi.cs</DependentUpon>
     </Compile>
-    <Compile Include="EditCTPhieuMuon.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="EditCTPhieuMuon.Designer.cs">
-      <DependentUpon>EditCTPhieuMuon.cs</DependentUpon>
-    </Compile>
     <Compile Include="EditPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +89,18 @@
     <Compile Include="EditThuThu.Designer.cs">
       <DependentUpon>EditThuThu.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmReportSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmReportSach.Designer.cs">
+      <DependentUpon>frmReportSach.cs</DependentUpon>
+    </Compile>
+    <Compile Include="InDSSach.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>InDSSach.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="EditSach.cs">
@@ -103,11 +109,11 @@
     <Compile Include="EditSach.Designer.cs">
       <DependentUpon>EditSach.cs</DependentUpon>
     </Compile>
-    <Compile Include="TheLoai.cs">
+    <Compile Include="QuanLySinhVien.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="TheLoai.Designer.cs">
-      <DependentUpon>TheLoai.cs</DependentUpon>
+    <Compile Include="QuanLySinhVien.Designer.cs">
+      <DependentUpon>QuanLySinhVien.cs</DependentUpon>
     </Compile>
     <Compile Include="TrangChuSinhVien.cs">
       <SubType>Form</SubType>
@@ -132,9 +138,6 @@
       <DependentUpon>DangKi.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
-    <EmbeddedResource Include="EditCTPhieuMuon.resx">
-      <DependentUpon>EditCTPhieuMuon.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="EditPhieuMuon.resx">
       <DependentUpon>EditPhieuMuon.cs</DependentUpon>
     </EmbeddedResource>
@@ -147,6 +150,13 @@
     <EmbeddedResource Include="EditThuThu.resx">
       <DependentUpon>EditThuThu.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="frmReportSach.resx">
+      <DependentUpon>frmReportSach.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="InDSSach.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>InDSSach.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
@@ -156,8 +166,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="TheLoai.resx">
-      <DependentUpon>TheLoai.cs</DependentUpon>
+    <EmbeddedResource Include="QuanLySinhVien.resx">
+      <DependentUpon>QuanLySinhVien.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="TrangChuSinhVien.resx">
       <DependentUpon>TrangChuSinhVien.cs</DependentUpon>

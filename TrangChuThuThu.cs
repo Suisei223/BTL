@@ -96,7 +96,10 @@ namespace BTL
 
         private void sáchToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            EditSach sachForm = new EditSach();
+            sachForm.MdiParent = this;
+            sachForm.Show();
+            sachForm.BringToFront();
         }
     }
 }

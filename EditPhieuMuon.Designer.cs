@@ -55,6 +55,7 @@
             this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.crystalReportViewer1 = new CrystalDecisions.Windows.Forms.CrystalReportViewer();
             this.btnIn = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
@@ -97,7 +98,7 @@
             // 
             // n
             // 
-            this.n.Location = new System.Drawing.Point(25, 364);
+            this.n.Location = new System.Drawing.Point(10, 364);
             this.n.Name = "n";
             this.n.Size = new System.Drawing.Size(118, 47);
             this.n.TabIndex = 6;
@@ -135,7 +136,7 @@
             // 
             // ktcpm
             // 
-            this.ktcpm.Location = new System.Drawing.Point(599, 364);
+            this.ktcpm.Location = new System.Drawing.Point(451, 364);
             this.ktcpm.Name = "ktcpm";
             this.ktcpm.Size = new System.Drawing.Size(120, 47);
             this.ktcpm.TabIndex = 12;
@@ -145,7 +146,7 @@
             // 
             // x
             // 
-            this.x.Location = new System.Drawing.Point(417, 364);
+            this.x.Location = new System.Drawing.Point(299, 364);
             this.x.Name = "x";
             this.x.Size = new System.Drawing.Size(112, 47);
             this.x.TabIndex = 13;
@@ -155,7 +156,7 @@
             // 
             // s
             // 
-            this.s.Location = new System.Drawing.Point(228, 364);
+            this.s.Location = new System.Drawing.Point(154, 364);
             this.s.Name = "s";
             this.s.Size = new System.Drawing.Size(114, 47);
             this.s.TabIndex = 14;
@@ -275,7 +276,7 @@
             // 
             // btnIn
             // 
-            this.btnIn.Location = new System.Drawing.Point(749, 364);
+            this.btnIn.Location = new System.Drawing.Point(607, 364);
             this.btnIn.Name = "btnIn";
             this.btnIn.Size = new System.Drawing.Size(110, 47);
             this.btnIn.TabIndex = 28;
@@ -283,11 +284,22 @@
             this.btnIn.UseVisualStyleBackColor = true;
             this.btnIn.Click += new System.EventHandler(this.btnIn_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(757, 364);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(100, 47);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "Xác nhận";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // EditPhieuMuon
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1543, 775);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.btnIn);
             this.Controls.Add(this.crystalReportViewer1);
             this.Controls.Add(this.label8);
@@ -350,5 +362,6 @@
         private System.Windows.Forms.ErrorProvider errorProvider1;
         private System.Windows.Forms.Button btnIn;
         private CrystalDecisions.Windows.Forms.CrystalReportViewer crystalReportViewer1;
+        private System.Windows.Forms.Button button1;
     }
 }

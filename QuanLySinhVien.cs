@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace BTL
 {
-    public partial class EditCTPhieuMuon : Form
+    public partial class QuanLySinhVien : Form
     {
-        public EditCTPhieuMuon()
+        public QuanLySinhVien()
         {
             InitializeComponent();
         }

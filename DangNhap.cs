@@ -19,15 +19,13 @@ namespace BTL
             string password = txtMatKhau.Text; 
             string role = CheckLogin(username, password);
 
-            Console.WriteLine("Role: " + role);
-
             if (role != null)
             {
                 this.Hide();
                 if (role == "Sinh viên")
                 {
-                    this.Hide();    
-                    TrangChuSinhVien trangSinhVien = new TrangChuSinhVien();
+                    this.Hide();
+                    TrangChuSinhVien trangSinhVien = new TrangChuSinhVien(username);
                     trangSinhVien.ShowDialog();
                     this.Show();
 
@@ -50,7 +48,7 @@ namespace BTL
         private void dk_Click(object sender, EventArgs e)
         {
             DangKi registerForm = new DangKi();
-            this.Close();
+            this.Hide();
             registerForm.ShowDialog();
         }
         private string CheckLogin(string username, string password)
