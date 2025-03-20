@@ -33,8 +33,8 @@ namespace BTL
                 txtSoLuong.Text = row.Cells["SoLuong"].Value.ToString();
                 txtTheLoai.Text = row.Cells["TheLoai"].Value.ToString();
 
-                btnThem.Text = "Lưu";  // Đổi tên nút Nhập thành Lưu
-                btnXoa.Enabled = true; // Hiện nút Xóa
+                btnThem.Text = "Lưu";  
+                btnXoa.Enabled = true; 
                 isEditing = true;
             }
         }

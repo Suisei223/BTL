@@ -78,6 +78,7 @@
             this.sinhViênToolStripMenuItem.Name = "sinhViênToolStripMenuItem";
             this.sinhViênToolStripMenuItem.Size = new System.Drawing.Size(224, 26);
             this.sinhViênToolStripMenuItem.Text = "Sinh viên";
+            this.sinhViênToolStripMenuItem.Click += new System.EventHandler(this.sinhViênToolStripMenuItem_Click);
             // 
             // thoátToolStripMenuItem
             // 

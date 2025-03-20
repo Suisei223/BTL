@@ -101,5 +101,13 @@ namespace BTL
             sachForm.Show();
             sachForm.BringToFront();
         }
+
+        private void sinhViênToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            QuanLySinhVien QL = new QuanLySinhVien();
+            QL.MdiParent = this;
+            QL.Show();
+            QL.BringToFront();
+        }
     }
 }
